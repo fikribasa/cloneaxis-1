@@ -1,41 +1,69 @@
-import {createAppContainer} from 'react-navigation';
-import {createBottomTabNavigator} from 'react-navigation-tabs';
-import {
-  Home,
-  Package,
-  Myaxis,
-  Profile,
-  History,
-  Notification,
-  ContactUs,
-} from '../pages';
+import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
+import {Beranda, BeliPaket, Play, Notif, MyAxis} from '../pages';
 
-const HomeStack = createBottomTabNavigator({
-  Home,
-  Package,
-  Myaxis,
-});
+const BerandaStack = createStackNavigator(
+  {
+    Beranda,
+  },
+  {
+    initialRouteName: 'Beranda',
+    headerMode: 'none',
+  },
+);
 
-const Router = createStackNavigator({
-  HomeStack: {
-    screen: HomeStack,
+const BeliPaketStack = createStackNavigator(
+  {
+    BeliPaket,
   },
-  Myaxis: {
-    screen: Myaxis,
+  {
+    initialRouteName: 'BeliPaket',
+    headerMode: 'none',
   },
-  History: {
-    screen: History,
+);
+
+const PlayStack = createStackNavigator(
+  {
+    Play,
   },
-  Profile: {
-    screen: Profile,
+  {
+    initialRouteName: 'Play',
+    headerMode: 'none',
   },
-  Notification: {
-    screen: Notification,
+);
+
+const NotifStack = createStackNavigator(
+  {
+    Notif,
   },
-  ContactUs: {
-    screen: ContactUs,
+  {
+    initialRouteName: 'Notif',
+    headerMode: 'none',
   },
-});
+);
+
+const MyAxisStack = createStackNavigator(
+  {
+    MyAxis,
+  },
+  {
+    initialRouteName: 'MyAxis',
+    headerMode: 'none',
+  },
+);
+
+const Router = createSwitchNavigator(
+  {
+    BerandaStack,
+    BeliPaketStack,
+    PlayStack,
+    NotifStack,
+    MyAxisStack,
+  },
+  {
+    initialRouteName: 'BerandaStack',
+    headerMode: 'none',
+  },
+);
 
 export default createAppContainer(Router);

@@ -1,17 +1,19 @@
 import React from 'react'
 import SafeAreaView from 'react-native-safe-area-view'
 import { View, Text } from 'react-native'
+import Footer from '../layouts/Footer'
 
-const Home = () => {
+const BeliPaket = () => {
     return(
-        <SafeAreaView>
-            <View>
+        <SafeAreaView style={{ flex: 1 }}>
+            <View style={{ flex: 1 }}>
                 <Text>
-                    Home
+                    BeliPaket
                 </Text>
             </View>
+            <Footer />
         </SafeAreaView>
     )
 }
 
-export default Home
+export default BeliPaket
