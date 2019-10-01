@@ -1,8 +1,15 @@
 import React from 'react';
-import SafeAreaView from 'react-native-safe-area-view';
-import {View, FlatList, StyleSheet, Text} from 'react-native';
+import {
+  SafeAreaView,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import Footer from '../layouts/Footer';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+
 const DATA = [
   {
     id: '1',
@@ -36,6 +43,7 @@ function Item({title, date, message}) {
     </TouchableOpacity>
   );
 }
+
 export default function Notif() {
   return (
     <SafeAreaView style={styles.container}>
