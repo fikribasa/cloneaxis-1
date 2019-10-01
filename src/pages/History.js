@@ -3,14 +3,12 @@ import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
+import Header from '../layouts/HeaderHistory';
+import Footer from '../layouts/Footer';
+
 import Transaction from './Transaction';
 import Usage from './Usage';
 
-//import TabScreen from './pages/TabScreen';
-
-//Making TabNavigator which will bw called in App StackNavigator
-//we can directly export the TabNavigator also but header will not be visible
-//as header comes only when we put anything into StackNavigator and then export
 const TabScreen = createMaterialTopTabNavigator(
   {
     Pemakaian: {screen: Usage},
@@ -28,7 +26,7 @@ const TabScreen = createMaterialTopTabNavigator(
       },
       labelStyle: {
         textAlign: 'center',
-        fontSize: 20,
+        fontSize: 14,
       },
       indicatorStyle: {
         borderBottomColor: '#87B56A',
@@ -43,7 +41,7 @@ const History = createStackNavigator({
   TabScreen: {
     screen: TabScreen,
     navigationOptions: {
-      header: null,
+      header: <Header />,
       //   headerStyle: {
       //     textAlign: 'center',
       // justifyContent: 'center',

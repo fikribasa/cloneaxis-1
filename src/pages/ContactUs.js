@@ -6,11 +6,8 @@ import {createStackNavigator} from 'react-navigation-stack';
 import Advice from './Advice';
 import Complaint from './Complaint';
 
-//import TabScreen from './pages/TabScreen';
+import Header from '../layouts/HeaderHistory';
 
-//Making TabNavigator which will bw called in App StackNavigator
-//we can directly export the TabNavigator also but header will not be visible
-//as header comes only when we put anything into StackNavigator and then export
 const TabScreen = createMaterialTopTabNavigator(
   {
     Saran: {screen: Advice},
@@ -42,13 +39,13 @@ const TabScreen = createMaterialTopTabNavigator(
 const ContactUs = createStackNavigator({
   TabScreen: {
     screen: TabScreen,
-    // navigationOptions: {
-    //     header: null,
-    //   headerStyle: {
-    //     textAlign: 'center',
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // },
+    navigationOptions: {
+      header: <Header />,
+      //   headerStyle: {
+      //     textAlign: 'center',
+      // justifyContent: 'center',
+      // alignItems: 'center',
+    },
     //   headerTintColor: '#633689',
     //   title: 'History',
   },

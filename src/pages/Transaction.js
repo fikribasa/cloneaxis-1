@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  TouchableOpacity,
-  FlatList,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {TouchableOpacity, FlatList, StyleSheet, Text, View} from 'react-native';
+import SafeAreaView from 'react-native-safe-area-view';
 
 const USAGE = [
   {

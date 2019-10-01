@@ -7,6 +7,8 @@ import {
   Text,
   View,
 } from 'react-native';
+import Footer from '../layouts/Footer';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const DATA = [
   {
@@ -42,7 +44,7 @@ function Item({title, date, message}) {
   );
 }
 
-export default function Notification() {
+export default function Notif() {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
@@ -52,6 +54,7 @@ export default function Notification() {
           <Item title={item.title} date={item.date} message={item.message} />
         )}
       />
+      <Footer />
     </SafeAreaView>
   );
 }

@@ -1,6 +1,20 @@
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-import {Beranda, BeliPaket, Play, Notif, MyAxis} from '../pages';
+import {
+  Beranda,
+  BeliPaket,
+  Play,
+  Notif,
+  MyAxis,
+  History,
+  Profile,
+  ContactUs,
+  Transaction,
+  Usage,
+  Advice,
+  Complaint,
+  AboutUs,
+} from '../pages';
 
 const BerandaStack = createStackNavigator(
   {
@@ -9,6 +23,9 @@ const BerandaStack = createStackNavigator(
   {
     initialRouteName: 'Beranda',
     headerMode: 'none',
+    headerBackTitleStyle: {
+      opacity: 0,
+    },
   },
 );
 
@@ -45,6 +62,14 @@ const NotifStack = createStackNavigator(
 const MyAxisStack = createStackNavigator(
   {
     MyAxis,
+    History,
+    Profile,
+    ContactUs,
+    Transaction,
+    Usage,
+    Advice,
+    Complaint,
+    AboutUs,
   },
   {
     initialRouteName: 'MyAxis',
