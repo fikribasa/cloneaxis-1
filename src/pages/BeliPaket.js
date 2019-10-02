@@ -1,16 +1,14 @@
 import React from 'react';
-import { Text } from 'react-native'
-import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import { createMaterialTopTabNavigator, createBottomTabNavigator } from 'react-navigation-tabs';
 
 
-import Internet from './Internet';
-import Recommended from './Recommended';
-import NewBoostr from './NewBoostr';
-import TeleponDanSms from './TeleponDanSms';
 import Roaming from './Roaming';
-import Header from '../layouts/HeaderHistory'
+import Internet from './Internet';
+import NewBoostr from './NewBoostr';
+import Footer from '../layouts/Footer'
+import Recommended from './Recommended';
+import TeleponDanSms from './TeleponDanSms';
 
 const TabScreen = createMaterialTopTabNavigator(
     {
@@ -44,8 +42,18 @@ const TabScreen = createMaterialTopTabNavigator(
 );
 
 //making a StackNavigator to export as default
-const BeliPaket = createStackNavigator({
-    TabScreen: { screen: TabScreen, navigationOptions: { header: <Text style={{ fontSize: 25, color: '#392553', fontWeight: 'bold', paddingVertical: 20, paddingLeft: 10 }}>Beli Paket</Text> } },
-});
+const BeliPaket = createBottomTabNavigator({
+    TabScreen: { 
+        screen: TabScreen, 
+        navigationOptions: {
+            tabBarComponent: props => (
+                <Footer {...props} />
+            )
+        }
+    },
+    tabBarPosition: 'bottom'
+
+}
+);
 
 export default createAppContainer(BeliPaket);

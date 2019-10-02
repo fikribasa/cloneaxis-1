@@ -7,109 +7,106 @@ import Footer from '../layouts/Footer'
 
 const TeleponDanSms = props => {
     return (
-        <View style={{ flex: 1 }}>
-            <ScrollView style={{ flex: 1 }}>
-                <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', paddingLeft: 15, marginTop: 10, marginBottom: 10 }}>
-                    <TouchableOpacity>
-                        <Text style={ styles.textCategoryActive }>Semua</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Text style={ styles.textCategory }>BRONET 24 JAM</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Text style={ styles.textCategory }>OWSEM</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Text style={ styles.textCategory }>OBOR Dinihari</Text>
-                    </TouchableOpacity>
-                </ScrollView>
-                <View style={{ flexDirection: 'row', alignItems:"center", justifyContent:"space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 10 }}>
-                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6D3D87' }}>KANGEN</Text>
-                    <Image source={require('../assets/icon/ic_info_pink.webp')} style={{ height: 25, width: 25 }} />
-                </View>
-                <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', flexWrap: 'wrap', paddingLeft: 10, marginBottom: 30 }}>
-                    <TouchableOpacity style={styles.card}>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                        <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                            <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                            <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                        </View>
-                        <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                        <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.card}>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                        <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                            <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                            <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                        </View>
-                        <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                        <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.card}>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                        <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                            <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                            <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                        </View>
-                        <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                        <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.card}>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                        <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                            <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                            <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                        </View>
-                        <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                        <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                    </TouchableOpacity>
-                </ScrollView>
-                <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: "space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 10 }}>
-                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6D3D87' }}>CURHAT</Text>
-                    <Image source={require('../assets/icon/ic_info_pink.webp')} style={{ height: 25, width: 25 }} />
-                </View>
-                <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', flexWrap: 'wrap', paddingLeft: 10, marginBottom: 50 }}>
-                    <TouchableOpacity style={styles.card}>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                        <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                            <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                            <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                        </View>
-                        <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                        <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.card}>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                        <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                            <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                            <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                        </View>
-                        <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                        <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.card}>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                        <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                            <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                            <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                        </View>
-                        <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                        <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.card}>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                        <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                            <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                            <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                        </View>
-                        <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                        <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                    </TouchableOpacity>
-                </ScrollView>
+        <ScrollView style={{ flex: 1 }}>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', paddingLeft: 15, marginTop: 10, marginBottom: 10 }}>
+                <TouchableOpacity>
+                    <Text style={ styles.textCategoryActive }>Semua</Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <Text style={ styles.textCategory }>BRONET 24 JAM</Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <Text style={ styles.textCategory }>OWSEM</Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <Text style={ styles.textCategory }>OBOR Dinihari</Text>
+                </TouchableOpacity>
             </ScrollView>
-            <Footer/>
-        </View>
+            <View style={{ flexDirection: 'row', alignItems:"center", justifyContent:"space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 10 }}>
+                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6D3D87' }}>KANGEN</Text>
+                <Image source={require('../assets/icon/ic_info_pink.webp')} style={{ height: 25, width: 25 }} />
+            </View>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', flexWrap: 'wrap', paddingLeft: 10, marginBottom: 30 }}>
+                <TouchableOpacity style={styles.card}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
+                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
+                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
+                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
+                    </View>
+                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
+                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.card}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
+                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
+                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
+                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
+                    </View>
+                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
+                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.card}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
+                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
+                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
+                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
+                    </View>
+                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
+                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.card}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
+                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
+                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
+                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
+                    </View>
+                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
+                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
+                </TouchableOpacity>
+            </ScrollView>
+            <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: "space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 10 }}>
+                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6D3D87' }}>CURHAT</Text>
+                <Image source={require('../assets/icon/ic_info_pink.webp')} style={{ height: 25, width: 25 }} />
+            </View>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', flexWrap: 'wrap', paddingLeft: 10, marginBottom: 50 }}>
+                <TouchableOpacity style={styles.card}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
+                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
+                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
+                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
+                    </View>
+                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
+                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.card}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
+                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
+                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
+                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
+                    </View>
+                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
+                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.card}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
+                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
+                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
+                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
+                    </View>
+                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
+                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.card}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
+                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
+                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
+                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
+                    </View>
+                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
+                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
+                </TouchableOpacity>
+            </ScrollView>
+        </ScrollView>
     )
 }
 

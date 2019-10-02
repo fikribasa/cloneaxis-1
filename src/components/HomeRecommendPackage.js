@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity, TouchableOpacity } from 'react-native'
 import { withNavigation } from 'react-navigation'
 
 const HomeRecommendPackage = props => {
@@ -15,16 +15,17 @@ const HomeRecommendPackage = props => {
                 </View>
             </View>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 15, marginTop: 5 }}>
-                <TouchableOpacity activeOpacity={0.7} style={{
+                <TouchableOpacity style={{
                     height: 115, width: 160, borderRadius: 10, backgroundColor: '#F9A11B', padding: 13,
                     shadowColor: "#000",
                     shadowOffset: {
-                        width: 0,
+                        width: 5,
                         height: 3,
                     },
                     shadowOpacity: 0.29,
-                    shadowRadius: 4.65,
-                    elevation: 7
+                    shadowRadius: 40.65,
+                    // elevation: 7,
+                    // zIndex:-1
                 }} onPress={ () => props.navigation.navigate('PackageDetails') } >
                     <Text style={{ fontSize: 10, fontWeight: 'bold', color: 'white' }}>INTERNET</Text>
                     <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>10GB DISC 40%</Text>
@@ -35,7 +36,7 @@ const HomeRecommendPackage = props => {
                     <Text style={{ textDecorationLine: 'line-through', fontSize: 12, color: 'white' }}>Rp. 97.900</Text>
                     <Text style={{ fontSize: 9, marginTop: 8, color: 'white' }}>Masa aktif 30 hari</Text>
                 </TouchableOpacity>
-                <View style={{
+                <TouchableOpacity style={{
                     height: 115, width: 160, borderRadius: 10, backgroundColor: '#CB56C8', padding: 13,
                     shadowColor: "#000",
                     shadowOffset: {
@@ -54,7 +55,7 @@ const HomeRecommendPackage = props => {
                     </View>
                     <Text style={{ textDecorationLine: 'line-through', fontSize: 12, color: 'white' }}>Rp. 65.900</Text>
                     <Text style={{ fontSize: 9, marginTop: 8, color: 'white' }}>Masa aktif 30 hari</Text>
-                </View>
+                </TouchableOpacity>
             </View>
         </View>
     )
