@@ -1,6 +1,8 @@
 import React from 'react';
 import {TouchableOpacity, FlatList, StyleSheet, Text, View} from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
+import Footer from '../layouts/Footer';
+import {withNavigation} from 'react-navigation';
 
 
 const USAGE = [
@@ -38,19 +40,22 @@ function Item({type, date, price}) {
   );
 }
 
-export default function Usage() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        data={USAGE}
-        keyExtractor={item => item.id}
-        renderItem={({item}) => (
-          <Item type={item.type} date={item.date} price={item.price} />
-        )}
-      />
-    </SafeAreaView>
-  );
+class Usage extends React.Component {
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+        <FlatList
+          data={USAGE}
+          keyExtractor={item => item.id}
+          renderItem={({item}) => (
+            <Item type={item.type} date={item.date} price={item.price} />
+          )}
+        />
+      </SafeAreaView>
+    );
+  }
 }
+export default withNavigation(Usage);
 
 const styles = StyleSheet.create({
   container: {

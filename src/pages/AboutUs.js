@@ -8,6 +8,7 @@ import {
   ImageBackground,
   StyleSheet,
   Dimensions,
+  Linking,
 } from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
@@ -55,22 +56,43 @@ const Beranda = props => {
           justifyContent: 'center',
           paddingBottom: 8,
         }}>
-        <Image
-          style={styles.iconsocial}
-          source={require('../assets/icon/icon_about_ig.webp')}
-        />
-        <Image
-          style={styles.iconsocial}
-          source={require('../assets/icon/icon_about_fb.webp')}
-        />
-        <Image
-          style={styles.iconsocial}
-          source={require('../assets/icon/icon_about_twitter.webp')}
-        />
-        <Image
-          style={styles.iconsocial}
-          source={require('../assets/icon/icon_about_youtube.webp')}
-        />
+        <TouchableOpacity
+          onPress={() =>
+            Linking.openURL(
+              'http:/instagram.com/_u/axis_id/#Intent;package=com.instagram.android;scheme=https;end',
+            )
+          }>
+          <Image
+            style={styles.iconsocial}
+            source={require('../assets/icon/icon_about_ig.webp')}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => Linking.openURL('https://www.facebook.com/AXISgsm/')}>
+          <Image
+            style={styles.iconsocial}
+            source={require('../assets/icon/icon_about_fb.webp')}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => Linking.openURL('https://twitter.com/ask_axis')}>
+          <Image
+            style={styles.iconsocial}
+            source={require('../assets/icon/icon_about_twitter.webp')}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() =>
+            Linking.openURL(
+              'https://www.youtube.com/channel/UCzMfl9jaqUP0oaaw_W9bnkw',
+            )
+          }>
+          <Image
+            style={styles.iconsocial}
+            source={require('../assets/icon/icon_about_youtube.webp')}
+          />
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

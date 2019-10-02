@@ -9,6 +9,7 @@ import {
   Picker,
   ScrollView,
   ImageBackground,
+  StatusBar,
 } from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
@@ -20,6 +21,7 @@ class Advice extends React.Component {
   render() {
     return (
       <SafeAreaView style={{flex: 1}}>
+        <StatusBar translucent backgroundColor="transparent" />
         <ScrollView>
           <View>
             <ImageBackground
@@ -85,7 +87,7 @@ class Advice extends React.Component {
                 width: '100%',
               }}>
               <TouchableOpacity style={styles.button}>
-                <Text style={{color: 'white'}}>SIMPAN</Text>
+                <Text style={{color: 'white'}}>KIRIM</Text>
                 <Image
                   source={require('../assets/icon/ic_arrow_forward_white_18dp.png')}
                   style={styles.arrow}
