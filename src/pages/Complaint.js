@@ -9,6 +9,7 @@ import {
   Picker,
   ScrollView,
   ImageBackground,
+  KeyboardAvoidingView,
 } from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
@@ -85,7 +86,7 @@ class Complaint extends React.Component {
                 width: '100%',
               }}>
               <TouchableOpacity style={styles.button}>
-                <Text style={{color: 'white'}}>SIMPAN</Text>
+                <Text style={{color: 'white'}}>KIRIM</Text>
                 <Image
                   source={require('../assets/icon/ic_arrow_forward_white_18dp.png')}
                   style={styles.arrow}
@@ -94,6 +95,12 @@ class Complaint extends React.Component {
             </View>
           </View>
         </ScrollView>
+        <KeyboardAvoidingView
+          style={{flex: 1}}
+          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+          keyboardVerticalOffset={
+            Platform.OS === 'ios' ? 40 : 0
+          }></KeyboardAvoidingView>
       </SafeAreaView>
     );
   }

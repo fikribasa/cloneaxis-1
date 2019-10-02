@@ -47,7 +47,7 @@ export default class Profile extends Component {
                 alignItems: 'center',
               }}>
               <Image
-                source={require('../assets/icon/profile.webp')}
+                source={require('../assets/icon/profile.png')}
                 style={styles.profile}
               />
             </View>
@@ -73,24 +73,6 @@ export default class Profile extends Component {
               <Text style={styles.smalltext}>NOMOR HP</Text>
               <TextInput
                 placeholder="08XXXXXXXXXXX"
-                style={styles.elementform}
-                value="085604680120"
-              />
-            </View>
-
-            <View>
-              <Text style={styles.smalltext}>KTP</Text>
-              <TextInput
-                placeholder="Nomor KTP"
-                style={styles.elementform}
-                value=""
-              />
-            </View>
-
-            <View>
-              <Text style={styles.smalltext}>KARTU KELUARGA</Text>
-              <TextInput
-                placeholder="Kartu Keluarga"
                 style={styles.elementform}
                 value=""
               />

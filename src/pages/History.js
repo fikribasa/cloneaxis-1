@@ -4,8 +4,8 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
 import Header from '../layouts/HeaderHistory';
-import Footer from '../layouts/Footer';
 
+import MyAxis from './MyAxis';
 import Transaction from './Transaction';
 import Usage from './Usage';
 
@@ -20,9 +20,10 @@ const TabScreen = createMaterialTopTabNavigator(
     animationEnabled: true,
     tabBarOptions: {
       activeTintColor: '#633689',
-      inactiveTintColor: '#F8F8F8',
+      inactiveTintColor: '#D7DBDD',
       style: {
         backgroundColor: 'transparent',
+        marginBottom: 8,
       },
       labelStyle: {
         textAlign: 'center',
@@ -42,13 +43,13 @@ const History = createStackNavigator({
     screen: TabScreen,
     navigationOptions: {
       header: <Header />,
-      //   headerStyle: {
-      //     textAlign: 'center',
-      // justifyContent: 'center',
-      // alignItems: 'center',
-      //   },
-      //   headerTintColor: '#633689',
-      //   title: 'History',
+    },
+  },
+
+  MyAxis: {
+    screen: MyAxis,
+    navigationOptions: {
+      header: null,
     },
   },
 });

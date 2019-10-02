@@ -17,9 +17,10 @@ const TabScreen = createMaterialTopTabNavigator(
     tabBarPosition: 'top',
     swipeEnabled: true,
     animationEnabled: true,
+    backBehavior: 'history',
     tabBarOptions: {
       activeTintColor: '#633689',
-      inactiveTintColor: '#F8F8F8',
+      inactiveTintColor: '#D7DBDD',
       style: {
         backgroundColor: 'transparent',
       },
@@ -35,19 +36,14 @@ const TabScreen = createMaterialTopTabNavigator(
   },
 );
 
-//making a StackNavigator to export as default
+// making a StackNavigator to export as default
 const ContactUs = createStackNavigator({
   TabScreen: {
     screen: TabScreen,
     navigationOptions: {
       header: <Header />,
-      //   headerStyle: {
-      //     textAlign: 'center',
-      // justifyContent: 'center',
-      // alignItems: 'center',
     },
-    //   headerTintColor: '#633689',
-    //   title: 'History',
+    tabBarComponent: {},
   },
 });
 

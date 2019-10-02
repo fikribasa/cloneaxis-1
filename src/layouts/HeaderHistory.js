@@ -9,6 +9,7 @@ import {
   Image,
 } from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {withNavigation} from 'react-navigation';
 
 const Header = props => {
   return (
@@ -29,7 +30,7 @@ const Header = props => {
             </TouchableOpacity>
 
             <Text style={{fontSize: 14, color: '#5B2C6F', fontWeight: 'bold'}}>
-              History
+              {props.navigation.state.routeName}
             </Text>
             <View style={{width: '20%'}}></View>
           </View>
@@ -39,7 +40,7 @@ const Header = props => {
   );
 };
 
-export default Header;
+export default withNavigation(Header);
 
 const styles = StyleSheet.create({
   container: {
