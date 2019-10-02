@@ -4,6 +4,7 @@ import SafeAreaView from 'react-native-safe-area-view';
 import Footer from '../layouts/Footer';
 import {withNavigation} from 'react-navigation';
 
+
 const USAGE = [
   {
     id: '1',
