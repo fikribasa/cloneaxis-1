@@ -1,64 +1,59 @@
 import React from 'react';
-import {
-  createMaterialTopTabNavigator,
-  createBottomTabNavigator,
-} from 'react-navigation-tabs';
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
-//////////////import pages
-import internet from './subpages/internet';
-import recommended from './subpages/recommended';
+import { createAppContainer } from 'react-navigation';
+import { createMaterialTopTabNavigator, createBottomTabNavigator } from 'react-navigation-tabs';
 
-import Header from '../layouts/HeaderHistory';
-import Footer from '../layouts/Footer';
+
+import Roaming from './Roaming';
+import Internet from './Internet';
+import NewBoostr from './NewBoostr';
+import Footer from '../layouts/Footer'
+import Recommended from './Recommended';
+import TeleponDanSms from './TeleponDanSms';
 
 const TabScreen = createMaterialTopTabNavigator(
-  {
-    ////////////pages yang ditampilkan di tab
-    Internet: {screen: internet},
-    Recommended: {screen: recommended},
-  },
-  {
-    tabBarPosition: 'top',
-    swipeEnabled: true,
-    animationEnabled: true,
-
-    tabBarOptions: {
-      activeTintColor: '#633689',
-      inactiveTintColor: '#D7DBDD',
-      style: {
-        backgroundColor: 'transparent',
-        marginBottom: 8,
-      },
-      labelStyle: {
-        textAlign: 'center',
-        fontSize: 14,
-      },
-      indicatorStyle: {
-        borderBottomColor: '#5499C7',
-        borderBottomWidth: 3,
-      },
+    {
+        Recommended: { screen: Recommended },
+        Internet: { screen: Internet },
+        NewBoostr: { screen: NewBoostr },
+        TeleponDanSms: { screen: TeleponDanSms },
+        Roaming: { screen: Roaming }
     },
-  },
+    {
+        tabBarPosition: 'top',
+        swipeEnabled: true,
+        animationEnabled: true,
+        tabBarOptions: {
+            activeTintColor: '#633689',
+            inactiveTintColor: 'grey',
+            style: {
+                backgroundColor: 'transparent',
+            },
+            labelStyle: {
+                textAlign: 'center',
+                fontSize: 10,
+                fontWeight: 'bold'
+            },
+            indicatorStyle: {
+                borderBottomColor: '#00E5BC',
+                borderBottomWidth: 3,
+            },
+        },
+    },
 );
 
-const TabFooter = createBottomTabNavigator(
-  {
-    TabScreenStack: {screen: TabScreen},
-  },
-  {
-    /////////////////Nampilin Footer
-    tabBarComponent: Footer,
-  },
-);
 //making a StackNavigator to export as default
-const BeliPaket = createStackNavigator({
-  TabScreen: {
-    screen: TabFooter,
-    navigationOptions: {
-      header: <Header />,
+const BeliPaket = createBottomTabNavigator({
+    TabScreen: { 
+        screen: TabScreen, 
+        navigationOptions: {
+            tabBarComponent: props => (
+                <Footer {...props} />
+            )
+        }
     },
-  },
-});
+    tabBarPosition: 'bottom'
+
+}
+);
 
 export default createAppContainer(BeliPaket);
