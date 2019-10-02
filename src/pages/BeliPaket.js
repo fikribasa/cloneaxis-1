@@ -45,12 +45,7 @@ const TabScreen = createMaterialTopTabNavigator(
 
 //making a StackNavigator to export as default
 const BeliPaket = createStackNavigator({
-    TabScreen: {
-        screen: TabScreen,
-        tabBarOptions : {
-            header: <Header />
-        }
-    },
+    TabScreen: { screen: TabScreen, navigationOptions: { header: <Text style={{ fontSize: 25, color: '#392553', fontWeight: 'bold', paddingVertical: 20, paddingLeft: 10 }}>Beli Paket</Text> } },
 });
 
 export default createAppContainer(BeliPaket);
