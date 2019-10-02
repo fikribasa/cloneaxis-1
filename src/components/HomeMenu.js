@@ -1,8 +1,8 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
+import { withNavigation } from 'react-navigation'
 
-
-const HomeMenu = () => {
+const HomeMenu = props => {
     return(
         <View style={{ height: 270, position: 'relative' }}>
             <Image source={require('../assets/background/bg_home.webp')} style={{ resizeMode: 'cover', height: '130%', width: '100%', position: 'absolute', top: -75 }} />
@@ -22,37 +22,37 @@ const HomeMenu = () => {
                         </View>
                     </View>
                 </View>
-                <View style={{ height: 105, borderBottomRightRadius: 10, borderBottomLeftRadius: 10, backgroundColor: 'white', width: '100%', paddingTop: 15, justifyContent: 'center', flexDirection: 'row' }}>
-                    <View style={{ marginHorizontal: 3.5, height: 53, width: 53, alignItems: 'center' }}>
+                <View style={{ height: 105, borderBottomRightRadius: 10, borderBottomLeftRadius: 10, backgroundColor: 'white', width: '100%', paddingTop: 15, justifyContent: 'center', flexDirection: 'row', zIndex: 1 }}>
+                    <TouchableOpacity style={{ marginHorizontal: 3.5, height: 53, width: 53, alignItems: 'center' }} onPress={ () => props.navigation.navigate('Recommended') }>
                         <View style={ styles.icon_menu }>
                             <Image source={ require('../assets/icon/icon_menu_recommended_3x.webp') } style={{ height: 46, width: 46 }} />
                         </View>
                         <Text style={{ fontSize: 8.91, marginTop: 5, fontWeight: 'bold', color:'#524862' }}>Recommended</Text>
-                    </View>
-                    <View style={{ marginHorizontal: 3.5, height: 53, width: 53, alignItems: 'center' }}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ marginHorizontal: 3.5, height: 53, width: 53, alignItems: 'center' }} onPress={() => props.navigation.navigate('Aigo')}>
                         <View style={ styles.icon_menu }>
                             <Image source={require('../assets/icon/icon_menu_scanaigo.webp')} style={{ height: 46, width: 46 }} />
                         </View>
                         <Text style={{ fontSize: 8.91, marginTop: 5, fontWeight: 'bold', textAlign: 'center', color:'#524862' }}>Isi AIGO</Text>
-                    </View>
-                    <View style={{ marginHorizontal: 3.5, height: 53, width: 53, alignItems: 'center' }}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ marginHorizontal: 3.5, height: 53, width: 53, alignItems: 'center' }} onPress={() => console.log('arey')}>
                         <View style={ styles.icon_menu }>
                             <Image source={ require('../assets/icon/icon_menu_sureprize_2.webp') } style={{ height: 46, width: 46 }} />
                         </View>
                         <Text style={{ fontSize: 8.91, marginTop: 5, fontWeight: 'bold', textAlign: 'center', color:'#524862' }}>Surprize</Text>
-                    </View>
-                    <View style={{ marginHorizontal: 3.5, height: 53, width: 53, alignItems: 'center' }}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ marginHorizontal: 3.5, height: 53, width: 53, alignItems: 'center' }} onPress={() => console.log('arey')}>
                         <View style={ styles.icon_menu }>
                             <Image source={require('../assets/icon/icon_menu_stamp.webp')} style={{ height: 46, width: 46 }} />
                         </View>
                         <Text style={{ fontSize: 8.91, marginTop: 5, fontWeight: 'bold', textAlign: 'center', color:'#524862' }}>Stamp Card</Text>
-                    </View>
-                    <View style={{ marginHorizontal: 3.5, height: 53, width: 53, alignItems: 'center' }}>
-                        <View style={ styles.icon_menu }>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ marginHorizontal: 3.5, height: 53, width: 53, alignItems: 'center' }} onPress={() => props.navigation.navigate('QuickMenu')}>
+                        <View style={ styles.icon_menu }> 
                             <Image source={require('../assets/icon/icon_menu_other.webp')} style={{ height: 46, width: 46 }} />
                         </View>
                         <Text style={{ fontSize: 8.91, marginTop: 5, fontWeight: 'bold', textAlign: 'center', color:'#524862' }}>Lainnya</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
                 <View style={{ marginTop: 8 }}>
                     <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'white' }}>Paket kamu saat ini</Text>
@@ -62,7 +62,7 @@ const HomeMenu = () => {
     )
 }
 
-export default HomeMenu
+export default withNavigation(HomeMenu)
 
 const styles =  StyleSheet.create({
     icon_menu : {

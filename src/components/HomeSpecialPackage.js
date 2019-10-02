@@ -1,7 +1,8 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
+import { withNavigation } from 'react-navigation'
 
-const HomeSpecialPackage = () => {
+const HomeSpecialPackage = props => {
     return (
         <View style={{ height: 250, marginTop: 10, marginBottom: 20 }}>
             <View style={{ height: '12%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginVertical: 10 }}>
@@ -12,8 +13,10 @@ const HomeSpecialPackage = () => {
             </View>
             <View style={{ height: 250, marginTop: -15 }}>
                 <ScrollView horizontal showsHorizontalScrollIndicator={ false } style={{ flexDirection: 'row', paddingLeft: 15, marginTop: 20, height: 20 }}>
-                    <View style={{ height: 230, width: 170, paddingVertical: 25, alignItems: 'center', backgroundColor: 'white'}}>
-                        <View style={{
+                    <View style={{ height: 230, width: 170, paddingVertical: 25, alignItems: 'center', backgroundColor: 'white'}}
+                        
+                    >
+                        <TouchableOpacity style={{
                             height: 165, width: '100%', borderRadius: 10, backgroundColor: 'white', padding: 13, width: 150,
                             shadowColor: "#000",
                             shadowOffset: {
@@ -23,13 +26,13 @@ const HomeSpecialPackage = () => {
                             shadowOpacity: 0.29,
                             shadowRadius: 4.65,
                             elevation: 7
-                        }}>
+                        }} onPress={() => props.navigation.navigate('PackageDetails')} activeOpacity={0.7}>
                             <Image source={require('../assets/brand/line.png')} style={{ width: 50, height: 50, marginTop: -35, zIndex: 2 }} />
                             <Text style={{ fontSize: 20, marginTop: 15 }}>Kuota LINE</Text>
                             <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#3D3D3D' }}>100MB</Text>
                             <Text style={{ fontSize: 25, color: '#6A318B', fontWeight: 'bold' }}>FREE</Text>
                             <Text style={{ fontSize: 13, marginTop: 10 }}>Masa aktif 1 hari</Text>
-                        </View>
+                        </TouchableOpacity>
                     </View>
                     <View style={{ height: 230, width: 170, paddingVertical: 25, alignItems: 'center', backgroundColor: 'white' }}>
                         <View style={{
@@ -148,7 +151,7 @@ const HomeSpecialPackage = () => {
     )
 }
 
-export default HomeSpecialPackage
+export default withNavigation(HomeSpecialPackage)
 
 const styles = StyleSheet.create({
 })

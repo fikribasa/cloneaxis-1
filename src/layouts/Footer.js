@@ -15,7 +15,8 @@ const Footer = props => {
                 >Beranda</Text>
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={.9} style={{ flex: 1 }} onPress={() => props.navigation.navigate('BeliPaketStack')} >
-                <Image fadeDuration={0} source={(props.navigation.state.routeName === 'BeliPaket') ? require('../assets/icon/nav_beli_on.webp') : require('../assets/icon/nav_beli_off.webp')}
+                <Image fadeDuration={0} source={(props.navigation.state.routeName === 'BeliPaket' || props.navigation.state.routeName === 'Roaming' || props.navigation.state.routeName === 'TeleponDanSms' || props.navigation.state.routeName === 'NewBoostr' || props.navigation.state.routeName === 'Internet' || props.navigation.state.routeName === 'Recommended') 
+                    ? require('../assets/icon/nav_beli_on.webp') : require('../assets/icon/nav_beli_off.webp')}
                     style={{ resizeMode: 'contain', height: '50%', width: '100%', marginBottom: 3, marginTop: 5 }} />
                 <Text 
                     style={ (props.navigation.state.routeName === 'BeliPaket') ? { textAlign: 'center', color: '#402366', fontSize: 15 } : { textAlign: 'center', fontSize: 13 }} 

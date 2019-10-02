@@ -12,13 +12,21 @@ import {
   Transaction,
   Usage,
   Advice,
+  Internet, Recommended,
   Complaint,
   AboutUs,
+  QuickMenu,
+  Topup,
+  Aigo,
+  PackageDetails,
+  NewBoostr,
+  TeleponDanSms,
+  Roaming
 } from '../pages';
 
 const BerandaStack = createStackNavigator(
   {
-    Beranda,
+    Beranda, QuickMenu, Topup, PackageDetails, Aigo
   },
   {
     initialRouteName: 'Beranda',
@@ -31,7 +39,7 @@ const BerandaStack = createStackNavigator(
 
 const BeliPaketStack = createStackNavigator(
   {
-    BeliPaket,
+    BeliPaket, Internet, Recommended, NewBoostr, TeleponDanSms, Roaming
   },
   {
     initialRouteName: 'BeliPaket',
