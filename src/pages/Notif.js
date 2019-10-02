@@ -1,12 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import SafeAreaView from 'react-native-safe-area-view';
-import {View, FlatList, StyleSheet, Text, ImageBackground} from 'react-native';
+import {
+  View,
+  FlatList,
+  StyleSheet,
+  Text,
+  ImageBackground,
+  StatusBar,
+} from 'react-native';
 import Footer from '../layouts/Footer';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 import {connect} from 'react-redux';
-import AsyncStorage from '@react-native-community/async-storage';
+// import AsyncStorage from '@react-native-community/async-storage';
 
 const DATA = [
   {
@@ -31,7 +38,7 @@ const DATA = [
   },
 ];
 
-const notif = [];
+import {getNotification} from '../publics/redux/actions/notification';
 
 function Item({title, date, message}) {
   return (
@@ -43,27 +50,28 @@ function Item({title, date, message}) {
     </TouchableOpacity>
   );
 }
+
 class Notif extends React.Component {
+  state = {
+    notification: [],
+  };
+
+  componentDidMount = async () => {
+    await this.props.dispatch(getNotification(1));
+    await this.setState({notification: this.props.notification});
+  };
+
   render() {
-    // const [data, setData] = useState({hits: []});
-    // const [isLoading, setIsLoading] = useState(false);
-
-    // useEffect(async () => {
-    //   const result = await axios(
-    //     'https://hn.algolia.com/api/v1/search?query=redux',
-    //   );
-
-    //   setData(result.data);
-    //   fetchData();
-    // }, []);
     return (
       <SafeAreaView style={{flex: 1}}>
+        {console.log(this.state.notification)}
+        <StatusBar translucent backgroundColor="transparent" />
         <TouchableOpacity style={{flexDirection: 'row-reverse'}}>
           <ImageBackground
             source={require('../assets/icon/graphic_header.png')}
             style={styles.headerbg}>
             <View style={styles.header}>
-              <Text style={styles.title}>Lainnya</Text>
+              <Text style={styles.titletop}>Notifikasi</Text>
               <View style={{width: '20%'}}></View>
             </View>
           </ImageBackground>
@@ -88,7 +96,7 @@ class Notif extends React.Component {
 }
 const mapStateProps = state => {
   return {
-    notification: state.notification.notification,
+    notification: state.notification.notifications,
   };
 };
 
@@ -105,6 +113,16 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 16,
   },
+  headerbg: {
+    width: '100%',
+    height: 100,
+    resizeMode: 'repeat',
+    overflow: 'hidden',
+    right: 0,
+    marginLeft: 'auto',
+    justifyContent: 'center',
+  },
+
   date: {
     fontSize: 10,
     marginRight: 4,
@@ -119,6 +137,14 @@ const styles = StyleSheet.create({
   strip: {
     backgroundColor: '#F2F3F4',
     height: 3,
+    marginBottom: 20,
+  },
+  titletop: {
+    paddingHorizontal: 10,
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#5B2C6F',
+    marginTop: 50,
     marginBottom: 20,
   },
 });

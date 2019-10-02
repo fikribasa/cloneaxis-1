@@ -1,5 +1,5 @@
 const initialState = {
-  notification: [],
+  notifications: [],
   isLoading: false,
   isRejected: false,
   isFulfilled: false,
@@ -25,7 +25,7 @@ const notification = (state = initialState, action) => {
         ...state,
         isLoading: false,
         isFulfilled: true,
-        notification: action.payload.data.responses,
+        notifications: action.payload.data.response,
       };
 
     default:

@@ -10,17 +10,17 @@ export const getUser = id => {
   };
 };
 
-export const patchUser = (id, data) => {
-  return {
-    type: 'PATCH_USER',
-    payload: axios.patch(
-      `https://instrument-shop-backend.herokuapp.com/api/products/${id}`,
-      data,
-      {
-        headers: {
-          'x-auth-token': AsyncStorage.getItem('token'),
-        },
-      },
-    ),
-  };
-};
+// export const patchUser = (id, data) => {
+//   return {
+//     type: 'PATCH_USER',
+//     payload: axios.patch(
+//       `https://instrument-shop-backend.herokuapp.com/api/products/${id}`,
+//       data,
+//       {
+//         headers: {
+//           'x-auth-token': AsyncStorage.getItem('token'),
+//         },
+//       },
+//     ),
+//   };
+// };
