@@ -1,41 +1,102 @@
-import {createAppContainer} from 'react-navigation';
-import {createBottomTabNavigator} from 'react-navigation-tabs';
-import {
-  Home,
-  Package,
-  Myaxis,
-  Profile,
-  History,
-  Notification,
-  ContactUs,
-} from '../pages';
+import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
+import {
+  Beranda,
+  BeliPaket,
+  Play,
+  Notif,
+  MyAxis,
+  History,
+  Profile,
+  ContactUs,
+  Transaction,
+  Usage,
+  Advice,
+  Internet, Recommended,
+  Complaint,
+  AboutUs,
+  QuickMenu,
+  Topup,
+  Aigo,
+  PackageDetails,
+  NewBoostr,
+  TeleponDanSms,
+  Roaming
+} from '../pages';
 
-const HomeStack = createBottomTabNavigator({
-  Home,
-  Package,
-  Myaxis,
-});
+const BerandaStack = createStackNavigator(
+  {
+    Beranda, QuickMenu, Topup, PackageDetails, Aigo
+  },
+  {
+    initialRouteName: 'Beranda',
+    headerMode: 'none',
+    headerBackTitleStyle: {
+      opacity: 0,
+    },
+  },
+);
 
-const Router = createStackNavigator({
-  HomeStack: {
-    screen: HomeStack,
+const BeliPaketStack = createStackNavigator(
+  {
+    BeliPaket, Internet, Recommended, NewBoostr, TeleponDanSms, Roaming, PackageDetails
   },
-  Myaxis: {
-    screen: Myaxis,
+  {
+    initialRouteName: 'BeliPaket',
+    headerMode: 'none',
   },
-  History: {
-    screen: History,
+);
+
+const PlayStack = createStackNavigator(
+  {
+    Play,
   },
-  Profile: {
-    screen: Profile,
+  {
+    initialRouteName: 'Play',
+    headerMode: 'none',
   },
-  Notification: {
-    screen: Notification,
+);
+
+const NotifStack = createStackNavigator(
+  {
+    Notif,
   },
-  ContactUs: {
-    screen: ContactUs,
+  {
+    initialRouteName: 'Notif',
+    headerMode: 'none',
   },
-});
+);
+
+const MyAxisStack = createStackNavigator(
+  {
+    MyAxis,
+    History,
+    Profile,
+    ContactUs,
+    Transaction,
+    Usage,
+    Advice,
+    Complaint,
+    AboutUs,
+  },
+  {
+    initialRouteName: 'MyAxis',
+    headerMode: 'none',
+  },
+);
+
+const Router = createSwitchNavigator(
+  {
+    BerandaStack,
+    BeliPaketStack,
+    PlayStack,
+    NotifStack,
+    MyAxisStack,
+  },
+  {
+    initialRouteName: 'BerandaStack',
+    headerMode: 'none',
+  },
+);
 
 export default createAppContainer(Router);

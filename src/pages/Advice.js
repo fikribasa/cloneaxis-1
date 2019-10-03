@@ -8,7 +8,10 @@ import {
   TextInput,
   Picker,
   ScrollView,
+  ImageBackground,
+  StatusBar,
 } from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 class Advice extends React.Component {
   state = {user: ''};
@@ -17,63 +20,83 @@ class Advice extends React.Component {
   };
   render() {
     return (
-      <ScrollView>
-        <View>
-          <Image
-            source={require('../assets/icon/bg_contact.webp')}
-            style={styles.banner}
-          />
-        </View>
-        <View style={styles.container}>
+      <SafeAreaView style={{flex: 1}}>
+        <StatusBar translucent backgroundColor="transparent" />
+        <ScrollView>
           <View>
-            <Text style={styles.smalltext}>Subject</Text>
-            <View style={styles.picker}>
-              <Picker
-                style={{marginTop: 2}}
-                selectedValue={this.state.user}
-                onValueChange={this.updateUser}>
-                <Picker.Item label="-- Pilih Kategori --" value="0" />
-                <Picker.Item label="Paket Data" value="Paket Data" />
-                <Picker.Item label="Pulsa" value="Pulsa" />
-                <Picker.Item label="Jaringan" value="Jaringan" />
-              </Picker>
+            <ImageBackground
+              source={require('../assets/icon/bg_contact.webp')}
+              style={styles.banner}>
+              <View
+                style={{color: 'white', flex: 1, marginLeft: 6, marginTop: 3}}>
+                <Text style={{color: 'white', fontSize: 10}}>Call Us</Text>
+                <Text style={{color: 'white', fontWeight: 'bold'}}>838</Text>
+              </View>
+              <View
+                style={{color: 'white', flex: 1, marginLeft: 6, marginTop: 3}}>
+                <Text style={{color: 'white', fontSize: 10}}>Tweet Us</Text>
+                <Text style={{color: 'white', fontWeight: 'bold'}}>
+                  @Ask_AXIS
+                </Text>
+              </View>
+            </ImageBackground>
+          </View>
+          <View style={styles.container}>
+            <View>
+              <Text style={styles.smalltext}>Subject</Text>
+              <View style={styles.picker}>
+                <Picker
+                  style={{marginTop: 2}}
+                  selectedValue={this.state.user}
+                  onValueChange={this.updateUser}>
+                  <Picker.Item label="- Pilih Kategori -" value="0" />
+                  <Picker.Item
+                    label="Saran Sinyal & Internet Akses"
+                    value="1"
+                  />
+                  <Picker.Item label="Saran Paket & Promo" value="2" />
+                  <Picker.Item label="Saran Konten, RBT, Games" value="3" />
+                  <Picker.Item label="Saran Pemakaian AXISNET" value="4" />
+                  <Picker.Item label="Saran Lainnya" value="5" />
+                </Picker>
+              </View>
             </View>
-          </View>
 
-          <View>
-            <Text style={styles.smalltext}>Email</Text>
-            <TextInput
-              placeholder="Profiles name"
-              style={styles.elementform}
-              value="Areydra@gmail.com"
-            />
-          </View>
-          <TextInput
-            placeholder="Tulis Pesan Anda"
-            style={styles.textarea}
-            //   value="Tulis Pesan Anda"
-            multiline={true}
-            numberOfLines={5}
-          />
-          <View
-            styles={{
-              justifyContent: 'center',
-              marginTop: 40,
-              marginLeft: 100,
-              backgroundColor: 'blue',
-
-              width: '100%',
-            }}>
-            <View style={styles.button}>
-              <Text style={{color: 'white'}}>SIMPAN</Text>
-              <Image
-                source={require('../assets/icon/ic_arrow_forward_white_18dp.png')}
-                style={styles.arrow}
+            <View>
+              <Text style={styles.smalltext}>Email</Text>
+              <TextInput
+                placeholder="Profiles name"
+                style={styles.elementform}
+                value="Areydra@gmail.com"
               />
             </View>
+            <TextInput
+              placeholder="Tulis Pesan Anda"
+              style={styles.textarea}
+              //   value="Tulis Pesan Anda"
+              multiline={true}
+              numberOfLines={5}
+            />
+            <View
+              styles={{
+                justifyContent: 'center',
+                marginTop: 40,
+                marginLeft: 100,
+                backgroundColor: 'blue',
+
+                width: '100%',
+              }}>
+              <TouchableOpacity style={styles.button}>
+                <Text style={{color: 'white'}}>KIRIM</Text>
+                <Image
+                  source={require('../assets/icon/ic_arrow_forward_white_18dp.png')}
+                  style={styles.arrow}
+                />
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </SafeAreaView>
     );
   }
 }
@@ -89,6 +112,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 60,
     marginRight: 8,
+    flexDirection: 'row',
   },
   elementform: {
     borderColor: '#ABB2B9',
