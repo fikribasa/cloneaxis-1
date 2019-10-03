@@ -12,6 +12,18 @@ import {
 import Footer from '../layouts/Footer';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
+handleLogout = async () => {
+  await AsyncStorage.clear().then(() =>
+    this.state.navigation.navigate('Login'),
+  );
+
+  ToastAndroid.showWithGravity(
+    'Anda Berhasil Keluar',
+    ToastAndroid.LONG,
+    ToastAndroid.CENTER,
+  );
+};
+
 const MyAxis = props => {
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -152,13 +164,15 @@ const MyAxis = props => {
         <View style={styles.strip}></View>
 
         <View style={{flexDirection: 'column', paddingLeft: 8}}>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <TouchableOpacity
+            style={{flexDirection: 'row', justifyContent: 'space-between'}}
+            onPress={() => this.handleLogout}>
             <Text style={styles.item}>Keluar</Text>
             <Image
               source={require('../assets/icon/ic_chevron_right_purple.webp')}
               style={styles.arrow}
             />
-          </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
       <Footer />

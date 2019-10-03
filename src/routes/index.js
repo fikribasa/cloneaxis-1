@@ -32,6 +32,7 @@ import {
   Konfirmasi,
   Login,
   Otp,
+  Splash,
 } from '../pages';
 
 const BerandaStack = createStackNavigator(
@@ -45,9 +46,10 @@ const BerandaStack = createStackNavigator(
     Konfirmasi,
     Login,
     Otp,
+    Splash,
   },
   {
-    initialRouteName: 'Beranda',
+    initialRouteName: 'Splash',
     headerMode: 'none',
     headerBackTitleStyle: {
       opacity: 0,

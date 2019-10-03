@@ -4,9 +4,7 @@ import {
   StyleSheet,
   Image,
   TextInput,
-  Button,
   ImageBackground,
-  Dimensions,
   StatusBar,
   ToastAndroid,
 } from 'react-native';
@@ -15,31 +13,43 @@ import React, {Component} from 'react';
 import SafeAreaView from 'react-native-safe-area-view';
 
 import {connect} from 'react-redux';
-// import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 import {getUser, patchUser} from '../publics/redux/actions/user';
 
 class Profile extends Component {
   state = {
-    user: [],
+    user: {name: null, email: null, phone: null, UserId: null},
     newname: '',
     newemail: '',
   };
 
   componentDidMount = async () => {
-    await this.props.dispatch(getUser(1));
-    await new Promise(resolve => {
-      setTimeout(resolve, 1000);
+    //   await AsyncStorage.getItem('id_user')
+
+    //   await this.setState({
+    //     newname: this.props.user.name,
+    //     newemail: this.props.user.newemail,
+    //   });
+    //   await this.setState({user: this.props.user});
+    // };
+    await AsyncStorage.getItem('id_user').then(id_user => {
+      this.setState({user: {UserId: id_user}});
     });
-    await this.setState({
-      newname: this.props.user.name,
-      newemail: this.props.user.newemail,
+    await AsyncStorage.getItem('name').then(name => {
+      this.setState({user: {name: name}});
     });
-    await this.setState({user: this.props.user});
+    await AsyncStorage.getItem('email').then(email => {
+      this.setState({user: {email: email}});
+    });
+    await AsyncStorage.getItem('phone').then(phone => {
+      this.setState({user: {phone: phone}});
+    });
+    console.log(this.props.user.email);
   };
 
   handleEdit = async (newname, newemail) => {
     const data = {name: this.state.newname, email: this.state.newemail};
-    await this.props.dispatch(patchUser(1, data)).then(async () => {
+    await this.props.dispatch(patchUser(UserId, data)).then(async () => {
       await this._toastpatch();
     });
   };
@@ -144,13 +154,13 @@ class Profile extends Component {
   }
 }
 
-const mapStateProps = state => {
-  return {
-    user: state.user.users,
-  };
-};
+// const mapStateProps = state => {
+//   return {
+//     user: state.user.users,
+//   };
+// };
 
-export default connect(mapStateProps)(Profile);
+export default connect(Profile);
 
 const styles = StyleSheet.create({
   container: {

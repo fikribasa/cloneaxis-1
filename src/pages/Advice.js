@@ -16,19 +16,33 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 
 import {connect} from 'react-redux';
 import {postReport} from '../publics/redux/actions/report';
+import AsyncStorage from '@react-native-community/async-storage';
 
 class Advice extends React.Component {
   state = {
-    UserId: '1',
+    UserId: '',
     complain: '',
     choosenLabel: '',
-
+    email: '',
     allcomplain: '',
   };
 
+  componentDidMount = async () => {
+    await AsyncStorage.getItem('id_user').then(id_user => {
+      this.setState({UserId: id_user});
+    });
+    await AsyncStorage.getItem('email').then(email => {
+      this.setState({email: email});
+    });
+  };
   handlePostReport = async () => {
     const data = {
-      complain: this.state.choosenLabel + ' berisi ' + this.state.complain,
+      complain:
+        this.state.email +
+        ' mengirimkan ' +
+        this.state.choosenLabel +
+        ' berisi ' +
+        this.state.complain,
       UserId: this.state.UserId,
     };
     await this.props.dispatch(postReport(data));
@@ -45,6 +59,7 @@ class Advice extends React.Component {
       50, //yOffset
     );
   };
+
   render() {
     return (
       <SafeAreaView style={{flex: 1}}>
@@ -100,14 +115,15 @@ class Advice extends React.Component {
               </View>
             </View>
 
-            {/*<View>
-             <Text style={styles.smalltext}>Email</Text>
+            <View>
+              <Text style={styles.smalltext}>Email</Text>
               <TextInput
                 placeholder="Email Address"
                 style={styles.elementform}
+                defaultValue={this.state.email}
                 onChangeText={text => this.setState({email: text})}
               />
-            </View> */}
+            </View>
             <TextInput
               placeholder="Tulis Pesan Anda"
               style={styles.textarea}
@@ -190,6 +206,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     height: 100,
     paddingLeft: 10,
+    top: 5,
   },
   smalltext: {
     fontSize: 12,

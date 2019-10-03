@@ -26,6 +26,7 @@ import AboutUs from './AboutUs';
 import Aigo from './Aigo';
 import PrivacyPolicy from './PrivacyPolicy';
 import Konfirmasi from './Konfirmasi';
+import Splash from './Splash';
 
 export {
   AboutUs,
@@ -55,4 +56,5 @@ export {
   Advice,
   Complaint,
   PrivacyPolicy,
+  Splash,
 };

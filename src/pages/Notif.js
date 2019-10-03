@@ -14,7 +14,7 @@ import Footer from '../layouts/Footer';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 import {connect} from 'react-redux';
-// import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import {getNotification} from '../publics/redux/actions/notification';
 
@@ -32,10 +32,14 @@ function Item({date, message}) {
 class Notif extends React.Component {
   state = {
     notification: [],
+    UserId: '',
   };
 
   componentDidMount = async () => {
-    await this.props.dispatch(getNotification(1));
+    await AsyncStorage.getItem('id_user').then(id_user => {
+      this.setState({UserId: id_user});
+    });
+    await this.props.dispatch(getNotification(this.state.UserId));
     await new Promise(resolve => {
       setTimeout(resolve, 1000);
     });
@@ -45,7 +49,6 @@ class Notif extends React.Component {
   render() {
     return (
       <SafeAreaView style={{flex: 1}}>
-        {console.log(this.state.notification)}
         <StatusBar translucent backgroundColor="transparent" />
         <TouchableOpacity style={{flexDirection: 'row-reverse'}}>
           <ImageBackground
