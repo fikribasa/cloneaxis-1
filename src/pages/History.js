@@ -5,7 +5,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 import Header from '../layouts/HeaderHistory';
 
-import MyAxis from './MyAxis';
+import MyAxis from './Myaxis';
 import Transaction from './Transaction';
 import Usage from './Usage';
 

@@ -18,9 +18,25 @@ import {connect} from 'react-redux';
 import {postReport} from '../publics/redux/actions/report';
 
 class Advice extends React.Component {
+  state = {
+    UserId: '1',
+    complain: '',
+    choosenLabel: '',
+    email: '',
+    allcomplain: '',
+  };
+
   handlePostReport = async () => {
-    let complain = {...this.state};
-    await this.props.dispatch(postReport(complain, 1));
+    const data = {
+      complain:
+        this.state.email +
+        ' mengirimkan ' +
+        this.state.choosenLabel +
+        ' berisi ' +
+        this.state.complain,
+      UserId: this.state.UserId,
+    };
+    await this.props.dispatch(postReport(data));
     await this._toastpatch();
   };
 
@@ -63,18 +79,28 @@ class Advice extends React.Component {
               <View style={styles.picker}>
                 <Picker
                   style={{marginTop: 2}}
-                  // selectedValue={this.state.user}
-                  // onValueChange={this.updateUser}
-                >
+                  selectedValue={this.state.choosenLabel}
+                  onValueChange={itemValue =>
+                    this.setState({choosenLabel: itemValue})
+                  }>
                   <Picker.Item label="- Pilih Kategori -" value="0" />
                   <Picker.Item
                     label="Saran Sinyal & Internet Akses"
-                    value="1"
+                    value="Saran Sinyal & Internet Akses"
                   />
-                  <Picker.Item label="Saran Paket & Promo" value="2" />
-                  <Picker.Item label="Saran Konten, RBT, Games" value="3" />
-                  <Picker.Item label="Saran Pemakaian AXISNET" value="4" />
-                  <Picker.Item label="Saran Lainnya" value="5" />
+                  <Picker.Item
+                    label="Saran Paket & Promo"
+                    value="Saran Paket & Promo"
+                  />
+                  <Picker.Item
+                    label="Saran Konten, RBT, Games"
+                    value="Saran Konten, RBT, Games"
+                  />
+                  <Picker.Item
+                    label="Saran Pemakaian AXISNET"
+                    value="Saran Pemakaian AXISNET"
+                  />
+                  <Picker.Item label="Saran Lainnya" value="Saran Lainnya" />
                 </Picker>
               </View>
             </View>
@@ -82,9 +108,9 @@ class Advice extends React.Component {
             <View>
               <Text style={styles.smalltext}>Email</Text>
               <TextInput
-                placeholder="Profiles name"
+                placeholder="Email Address"
                 style={styles.elementform}
-                value="Areydra@gmail.com"
+                onChangeText={text => this.setState({email: text})}
               />
             </View>
             <TextInput
@@ -93,7 +119,7 @@ class Advice extends React.Component {
               //   value="Tulis Pesan Anda"
               multiline={true}
               numberOfLines={5}
-              onChangeText={complain => this.setState({complain})}
+              onChangeText={text => this.setState({complain: text})}
             />
             <View
               styles={{

@@ -120,7 +120,7 @@ const MyAxis = props => {
                 flexDirection: 'column',
                 flexDirection: 'row',
               }}
-              onPress={() => props.navigation.navigate('ContactUs')}>
+              onPress={() => props.navigation.navigate('PrivacyPolicy')}>
               <Text style={styles.item}>Kebijakan Privacy Policy</Text>
               <Image
                 source={require('../assets/icon/ic_chevron_right_purple.webp')}

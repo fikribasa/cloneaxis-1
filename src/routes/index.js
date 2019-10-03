@@ -12,7 +12,8 @@ import {
   Transaction,
   Usage,
   Advice,
-  Internet, Recommended,
+  Internet,
+  Recommended,
   Complaint,
   AboutUs,
   QuickMenu,
@@ -21,12 +22,17 @@ import {
   PackageDetails,
   NewBoostr,
   TeleponDanSms,
-  Roaming
+  Roaming,
+  PrivacyPolicy,
 } from '../pages';
 
 const BerandaStack = createStackNavigator(
   {
-    Beranda, QuickMenu, Topup, PackageDetails, Aigo
+    Beranda,
+    QuickMenu,
+    Topup,
+    PackageDetails,
+    Aigo,
   },
   {
     initialRouteName: 'Beranda',
@@ -39,7 +45,12 @@ const BerandaStack = createStackNavigator(
 
 const BeliPaketStack = createStackNavigator(
   {
-    BeliPaket, Internet, Recommended, NewBoostr, TeleponDanSms, Roaming
+    BeliPaket,
+    Internet,
+    Recommended,
+    NewBoostr,
+    TeleponDanSms,
+    Roaming,
   },
   {
     initialRouteName: 'BeliPaket',
@@ -78,6 +89,7 @@ const MyAxisStack = createStackNavigator(
     Advice,
     Complaint,
     AboutUs,
+    PrivacyPolicy,
   },
   {
     initialRouteName: 'MyAxis',

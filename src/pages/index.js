@@ -18,16 +18,17 @@ import PackageDetails from './PackageDetails';
 import BeliPaket from './BeliPaket';
 import Play from './Play';
 import Notif from './Notif';
-import MyAxis from './MyAxis';
+import MyAxis from './Myaxis';
 import AboutUs from './AboutUs';
 import Aigo from './Aigo';
+import PrivacyPolicy from './PrivacyPolicy';
 
 export {
   AboutUs,
   Beranda,
   BeliPaket,
   QuickMenu,
-  Internet, 
+  Internet,
   NewBoostr,
   TeleponDanSms,
   Roaming,
@@ -45,4 +46,5 @@ export {
   Usage,
   Advice,
   Complaint,
+  PrivacyPolicy,
 };

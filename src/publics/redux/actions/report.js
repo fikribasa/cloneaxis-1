@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-export const postReport = (complain, UserId) => {
+export const postReport = data => {
   return {
     type: 'POST_REPORT',
     payload: axios.post(
       `https://mobile-provider-clone.herokuapp.com/report`,
-      complain,
+      data,
     ),
   };
 };

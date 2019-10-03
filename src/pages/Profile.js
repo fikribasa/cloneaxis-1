@@ -35,7 +35,12 @@ class Profile extends Component {
 
   handleEdit = async (newname, newemail) => {
     const data = {name: this.state.newname, email: this.state.newemail};
-
+    {
+      name === '' && this.setState({name: this.state.user.name});
+    }
+    {
+      email === '' && this.setState({email: this.state.user.email});
+    }
     await this.props.dispatch(patchUser(1, data)).then(async () => {
       await this._toastpatch();
     });
