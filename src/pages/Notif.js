@@ -8,6 +8,7 @@ import {
   Text,
   ImageBackground,
   StatusBar,
+  Image,
 } from 'react-native';
 import Footer from '../layouts/Footer';
 import {TouchableOpacity} from 'react-native-gesture-handler';

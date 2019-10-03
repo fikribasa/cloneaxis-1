@@ -22,18 +22,13 @@ class Advice extends React.Component {
     UserId: '1',
     complain: '',
     choosenLabel: '',
-    email: '',
+
     allcomplain: '',
   };
 
   handlePostReport = async () => {
     const data = {
-      complain:
-        this.state.email +
-        ' mengirimkan ' +
-        this.state.choosenLabel +
-        ' berisi ' +
-        this.state.complain,
+      complain: this.state.choosenLabel + ' berisi ' + this.state.complain,
       UserId: this.state.UserId,
     };
     await this.props.dispatch(postReport(data));
@@ -105,14 +100,14 @@ class Advice extends React.Component {
               </View>
             </View>
 
-            <View>
-              <Text style={styles.smalltext}>Email</Text>
+            {/*<View>
+             <Text style={styles.smalltext}>Email</Text>
               <TextInput
                 placeholder="Email Address"
                 style={styles.elementform}
                 onChangeText={text => this.setState({email: text})}
               />
-            </View>
+            </View> */}
             <TextInput
               placeholder="Tulis Pesan Anda"
               style={styles.textarea}

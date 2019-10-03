@@ -30,17 +30,15 @@ class Profile extends Component {
     await new Promise(resolve => {
       setTimeout(resolve, 1000);
     });
+    await this.setState({
+      newname: this.props.user.name,
+      newemail: this.props.user.newemail,
+    });
     await this.setState({user: this.props.user});
   };
 
   handleEdit = async (newname, newemail) => {
     const data = {name: this.state.newname, email: this.state.newemail};
-    {
-      name === '' && this.setState({name: this.state.user.name});
-    }
-    {
-      email === '' && this.setState({email: this.state.user.email});
-    }
     await this.props.dispatch(patchUser(1, data)).then(async () => {
       await this._toastpatch();
     });
