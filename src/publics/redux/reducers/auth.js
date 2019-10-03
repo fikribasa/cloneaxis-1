@@ -1,52 +1,59 @@
 const initialState = {
-  users: [],
-
+  user: {},
+  token: {},
+  userMobile: {},
+  status: 0,
   isLoading: false,
   isRejected: false,
   isFulfilled: false,
 };
 
-const user = (state = initialState, action) => {
+const auth = (state = initialState, action) => {
   switch (action.type) {
-    case 'GET_USER_PENDING':
+    case 'LOGIN_PENDING':
       return {
         ...state,
         isLoading: true,
         isRejected: false,
         isFulfilled: false,
       };
-    case 'GET_USER_REJECTED':
+    case 'LOGIN_REJECTED':
       return {
         ...state,
         isLoading: false,
         isRejected: true,
       };
-    case 'GET_USER_FULFILLED':
+    case 'LOGIN_FULFILLED':
       return {
         ...state,
         isLoading: false,
         isFulfilled: true,
-        users: action.payload.data.response.rows,
+        user: action.payload.data,
+        userMobile: action.payload.data.responses,
+        status: action.payload.data.status,
       };
 
-    case 'PATCH_USER_PENDING':
+    case 'REGISTER_PENDING':
       return {
         ...state,
         isLoading: true,
         isRejected: false,
         isFulfilled: false,
       };
-    case 'PATCH_USER_REJECTED':
+    case 'REGISTER_REJECTED':
       return {
         ...state,
         isLoading: false,
         isRejected: true,
       };
-    case 'PATCH_USER_FULFILLED':
+    case 'REGISTER_FULFILLED':
       return {
         ...state,
         isLoading: false,
         isFulfilled: true,
+        user: action.payload.data,
+        token: action.payload.data.data.token,
+        userMobile: action.payload.data.data.user,
       };
 
     default:
@@ -54,4 +61,4 @@ const user = (state = initialState, action) => {
   }
 };
 
-export default user;
+export default auth;

@@ -6,6 +6,7 @@ import internet from './package/internet';
 import newBoostr from './package/newBoostr';
 import teleponDanSms from './package/teleponDanSms';
 import roaming from './package/roaming';
+import transaction from './transaction';
 
 const reducers = combineReducers({
   user,
@@ -14,7 +15,8 @@ const reducers = combineReducers({
   internet,
   newBoostr,
   teleponDanSms,
-  roaming
+  roaming,
+  transaction,
 });
 
 export default reducers;
