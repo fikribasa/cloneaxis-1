@@ -9,7 +9,6 @@ import HomeSpecialPackage from '../components/HomeSpecialPackage'
 import HomeHighlights from '../components/HomeHighlights'
 import { TextInput } from 'react-native-gesture-handler'
 
-
 const Beranda = () => {
     return(
         <View style={{ flex: 1 }}>

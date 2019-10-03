@@ -24,6 +24,10 @@ import {
   TeleponDanSms,
   Roaming,
   PrivacyPolicy,
+  DetailPaket,
+  Konfirmasi,
+  Login,
+  Otp,
 } from '../pages';
 
 const BerandaStack = createStackNavigator(
@@ -33,6 +37,10 @@ const BerandaStack = createStackNavigator(
     Topup,
     PackageDetails,
     Aigo,
+    DetailPaket,
+    Konfirmasi,
+    Login,
+    Otp,
   },
   {
     initialRouteName: 'Beranda',
@@ -52,6 +60,7 @@ const BeliPaketStack = createStackNavigator(
     TeleponDanSms,
     Roaming,
     PackageDetails,
+    Konfirmasi,
   },
   {
     initialRouteName: 'BeliPaket',
