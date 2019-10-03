@@ -10,6 +10,27 @@ export const getUser = id => {
   };
 };
 
+export const login = phone => {
+  return{
+    type : 'LOGIN_USER',
+    payload: axios.post('https://mobile-provider-clone.herokuapp.com/user/login', phone)
+  }
+}
+
+export const sendOtp = phone => {
+  return {
+    type: 'SEND_OTP',
+    payload: axios.post('https://mobile-provider-clone.herokuapp.com/otp/loginOtp', phone)
+  }
+}
+
+export const sendEmail = user => {
+  return{
+    type: 'SEND_EMAIL',
+    payload: axios.post('https://mobile-provider-clone.herokuapp.com/otp/sentmail', user)
+  }
+}
+
 // export const patchUser = (id, data) => {
 //   return {
 //     type: 'PATCH_USER',

@@ -8,8 +8,13 @@ import HomeRecommendPackage from '../components/HomeRecommendPackage'
 import HomeSpecialPackage from '../components/HomeSpecialPackage'
 import HomeHighlights from '../components/HomeHighlights'
 import { TextInput } from 'react-native-gesture-handler'
+import AsyncStorage from '@react-native-community/async-storage'
 
-const Beranda = () => {
+const Beranda = props => {
+    AsyncStorage.getItem('token').then(token => {
+        (!token) ? props.navigation.navigate('Login') : null
+    })
+
     return(
         <View style={{ flex: 1 }}>
             <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={ false }>
