@@ -39,7 +39,7 @@ const BerandaStack = createStackNavigator(
 
 const BeliPaketStack = createStackNavigator(
   {
-    BeliPaket, Internet, Recommended, NewBoostr, TeleponDanSms, Roaming
+    BeliPaket, Internet, Recommended, NewBoostr, TeleponDanSms, Roaming, PackageDetails
   },
   {
     initialRouteName: 'BeliPaket',

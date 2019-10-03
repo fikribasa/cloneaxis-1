@@ -1,135 +1,84 @@
-import React from 'react'
-import SafeAreaView from 'react-native-safe-area-view'
-import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
+import React, { Component } from 'react'
+import { Text, StyleSheet, TouchableOpacity, ScrollView, View, Image } from 'react-native'
 import { withNavigation } from 'react-navigation'
+import { connect } from 'react-redux'
 
-import Footer from '../layouts/Footer'
+import Semua from '../components/teleponDanSms/semua'
+import Kangen from '../components/teleponDanSms/kangen'
+import Curhat from '../components/teleponDanSms/curhat'
 
-const TeleponDanSms = props => {
-    return (
-        <ScrollView style={{ flex: 1 }}>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', paddingLeft: 15, marginTop: 10, marginBottom: 10 }}>
-                <TouchableOpacity>
-                    <Text style={ styles.textCategoryActive }>Semua</Text>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                    <Text style={ styles.textCategory }>BRONET 24 JAM</Text>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                    <Text style={ styles.textCategory }>OWSEM</Text>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                    <Text style={ styles.textCategory }>OBOR Dinihari</Text>
-                </TouchableOpacity>
-            </ScrollView>
-            <View style={{ flexDirection: 'row', alignItems:"center", justifyContent:"space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 10 }}>
-                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6D3D87' }}>KANGEN</Text>
-                <Image source={require('../assets/icon/ic_info_pink.webp')} style={{ height: 25, width: 25 }} />
-            </View>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', flexWrap: 'wrap', paddingLeft: 10, marginBottom: 30 }}>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-            </ScrollView>
-            <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: "space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 10 }}>
-                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6D3D87' }}>CURHAT</Text>
-                <Image source={require('../assets/icon/ic_info_pink.webp')} style={{ height: 25, width: 25 }} />
-            </View>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', flexWrap: 'wrap', paddingLeft: 10, marginBottom: 50 }}>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-            </ScrollView>
-        </ScrollView>
-    )
+class TeleponDanSms extends Component {
+    state = {
+        category: 'semua'
+    }
+
+    render() {
+        let { category } = this.state
+        if (category === 'semua') {
+            return (
+                <ScrollView style={{ flex: 1 }}>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', paddingLeft: 15, marginTop: 10, marginBottom: 10 }}>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'semua' })}>
+                            <Text style={styles.textCategoryActive}>Semua</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'curhat' })}>
+                            <Text style={styles.textCategory}>CURHAT</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'kangen' })}>
+                            <Text style={styles.textCategory}>KANGEN</Text>
+                        </TouchableOpacity>
+                    </ScrollView>
+                    <Semua />
+                </ScrollView>
+            )
+        } else if (category === 'curhat') {
+            return (
+                <ScrollView style={{ flex: 1 }}>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', paddingLeft: 15, marginTop: 10, marginBottom: 10 }}>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'semua' })}>
+                            <Text style={styles.textCategory}>Semua</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'curhat' })}>
+                            <Text style={styles.textCategoryActive}>CURHAT</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'kangen' })}>
+                            <Text style={styles.textCategory}>KANGEN</Text>
+                        </TouchableOpacity>
+                    </ScrollView>
+                    <Curhat />
+                </ScrollView>
+            )
+        } else if (category === 'kangen') {
+            return (
+                <ScrollView style={{ flex: 1 }}>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', paddingLeft: 15, marginTop: 10, marginBottom: 10 }}>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'semua' })}>
+                            <Text style={styles.textCategory}>Semua</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'curhat' })}>
+                            <Text style={styles.textCategory}>CURHAT</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'kangen' })}>
+                            <Text style={styles.textCategoryActive}>KANGEN</Text>
+                        </TouchableOpacity>
+                    </ScrollView>
+                    <Kangen />
+                </ScrollView>
+            )
+        } else {
+            return <Text>LOADING.....</Text>
+        }
+    }
 }
 
-export default withNavigation(TeleponDanSms)
+const mapStateToProps = state => {
+    return {
+    }
+}
+
+export default withNavigation(connect(mapStateToProps)(TeleponDanSms))
 
 const styles = StyleSheet.create({
-    card: {
-        marginRight: 15,
-        height: 130,
-        width: 250,
-        backgroundColor: 'white',
-        borderRadius: 10,
-        padding: 10,
-        shadowColor: "#000",
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        shadowOpacity: 0.18,
-        shadowRadius: 1.00,
-        elevation: 1
-    },
     textCategory: {
         color: '#6D3D87',
         padding: 10,
@@ -153,4 +102,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         backgroundColor: '#743C93'
     }
+
 })

@@ -4,7 +4,7 @@ import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from 'rea
 import { TextInput } from 'react-native-gesture-handler'
 
 
-const PackageDetails = () => {
+const PackageDetails = props => {
     return (
         <ScrollView style={{ flex: 1 }}>
             <View style={{ height: 100, position: 'relative' }}>
@@ -28,18 +28,24 @@ const PackageDetails = () => {
                 elevation: 5
             }}>
                 <View style={{ height: 50, backgroundColor: '#FABA01', justifyContent: 'center', borderTopLeftRadius: 5, borderTopRightRadius: 5 }}>
-                    <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 20, marginLeft: 20 }}>32GB DISC20%</Text>
+                    <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 20, marginLeft: 20 }}>{props.navigation.state.params.package.name} {(props.navigation.state.params.package.discount > 0) ? <Text>DISC {props.navigation.state.params.package.discount}% </Text> : null} </Text>
                 </View>
                 <View style={{ height: 150, flexDirection: 'row', paddingTop: 20, backgroundColor: 'white', borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                     <View style={{ width: '40%', height: '90%', paddingLeft: 10 }}>
-                        <Text style={{ color: '#504864', fontWeight: 'bold' }}>INTERNET</Text>
+                        <Text style={{ color: '#504864', fontWeight: 'bold' }}>{props.navigation.state.params.package.Category.name.toUpperCase()}</Text>
                         <View style={{ flexDirection: 'row' }}>
                             <Text style={{ fontSize: 10, color: '#FABA01', fontWeight: 'bold', marginTop: 2 }}>Rp</Text>
-                            <Text style={{ fontSize: 25, color: '#FABA01', fontWeight: 'bold' }}>53.000</Text>
+                            <Text style={{ fontSize: 25, color: '#FABA01', fontWeight: 'bold' }}>
+                                { 
+                                    (props.navigation.state.params.package.discount) ? props.navigation.state.params.package.discprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") 
+                                        : 
+                                    props.navigation.state.params.package.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                                }
+                            </Text>
                         </View>
                     </View>
                     <View style={{ flex: 1, height: '90%' }}>
-                        <Text style={{ color: '#838383', textAlign: 'justify' }}>Kuota Utama 4GB + Sosmed 8GB + Musik 8GB + Malam 12GB + Unlimited Game 30hr Harga normal Rp65900</Text>
+                        <Text style={{ color: '#838383', textAlign: 'justify', paddingRight: 5 }}>{props.navigation.state.params.package.description}</Text>
                     </View>
                 </View>
             </View>
