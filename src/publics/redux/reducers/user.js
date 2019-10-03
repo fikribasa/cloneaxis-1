@@ -1,5 +1,5 @@
 const initialState = {
-  user: [],
+  users: [],
 
   isLoading: false,
   isRejected: false,
@@ -26,23 +26,23 @@ const user = (state = initialState, action) => {
         ...state,
         isLoading: false,
         isFulfilled: true,
-        user: action.payload.data.responses,
+        users: action.payload.data.response.rows,
       };
 
-    case 'PATCH_PRODUCT_PENDING':
+    case 'PATCH_USER_PENDING':
       return {
         ...state,
         isLoading: true,
         isRejected: false,
         isFulfilled: false,
       };
-    case 'PATCH_PRODUCT_REJECTED':
+    case 'PATCH_USER_REJECTED':
       return {
         ...state,
         isLoading: false,
         isRejected: true,
       };
-    case 'PATCH_PRODUCT_FULFILLED':
+    case 'PATCH_USER_FULFILLED':
       return {
         ...state,
         isLoading: false,

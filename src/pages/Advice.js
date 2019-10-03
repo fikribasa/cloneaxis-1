@@ -10,13 +10,29 @@ import {
   ScrollView,
   ImageBackground,
   StatusBar,
+  ToastAndroid,
 } from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
+import {connect} from 'react-redux';
+import {postReport} from '../publics/redux/actions/report';
+
 class Advice extends React.Component {
-  state = {user: ''};
-  updateUser = user => {
-    this.setState({user: user});
+  handlePostReport = async () => {
+    let complain = {...this.state};
+    await this.props.dispatch(postReport(complain, 1));
+    await this._toastpatch();
+  };
+
+  _toastpatch = () => {
+    //function to make Toast With Duration, Gravity And Offset
+    ToastAndroid.showWithGravityAndOffset(
+      'Saran Anda berhasil dikirim, \n Terima kasih atas saran anda (/ ^^)/ ',
+      ToastAndroid.LONG, //can be SHORT, LONG
+      ToastAndroid.BOTTOM, //can be TOP, BOTTON, CENTER
+      25, //xOffset
+      50, //yOffset
+    );
   };
   render() {
     return (
@@ -47,8 +63,9 @@ class Advice extends React.Component {
               <View style={styles.picker}>
                 <Picker
                   style={{marginTop: 2}}
-                  selectedValue={this.state.user}
-                  onValueChange={this.updateUser}>
+                  // selectedValue={this.state.user}
+                  // onValueChange={this.updateUser}
+                >
                   <Picker.Item label="- Pilih Kategori -" value="0" />
                   <Picker.Item
                     label="Saran Sinyal & Internet Akses"
@@ -76,6 +93,7 @@ class Advice extends React.Component {
               //   value="Tulis Pesan Anda"
               multiline={true}
               numberOfLines={5}
+              onChangeText={complain => this.setState({complain})}
             />
             <View
               styles={{
@@ -86,7 +104,9 @@ class Advice extends React.Component {
 
                 width: '100%',
               }}>
-              <TouchableOpacity style={styles.button}>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => this.handlePostReport()}>
                 <Text style={{color: 'white'}}>KIRIM</Text>
                 <Image
                   source={require('../assets/icon/ic_arrow_forward_white_18dp.png')}
@@ -101,7 +121,13 @@ class Advice extends React.Component {
   }
 }
 
-export default Advice;
+const mapStateToProps = state => {
+  return {
+    // report: state.report.report,
+  };
+};
+
+export default connect(mapStateToProps)(Advice);
 
 const styles = StyleSheet.create({
   container: {

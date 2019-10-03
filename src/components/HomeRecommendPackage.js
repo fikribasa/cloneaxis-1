@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet, TouchableOpacity, TouchableOpacity } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity, Touchable } from 'react-native'
 import { withNavigation } from 'react-navigation'
 
 const HomeRecommendPackage = props => {

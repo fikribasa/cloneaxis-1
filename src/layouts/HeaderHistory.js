@@ -8,14 +8,17 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+} from 'react-native-gesture-handler';
 import {withNavigation} from 'react-navigation';
 
 const Header = props => {
   return (
     <SafeAreaView>
       <StatusBar translucent backgroundColor="transparent" />
-      <TouchableOpacity style={{flexDirection: 'row-reverse'}}>
+      <TouchableWithoutFeedback style={{flexDirection: 'row-reverse'}}>
         <ImageBackground
           source={require('../assets/icon/graphic_header.png')}
           style={styles.headerbg}>
@@ -30,12 +33,14 @@ const Header = props => {
             </TouchableOpacity>
 
             <Text style={{fontSize: 14, color: '#5B2C6F', fontWeight: 'bold'}}>
-              {props.navigation.state.routeName}
+              {props.navigation.state.routeName === 'ContactUs'
+                ? 'Hubungi Kami'
+                : props.navigation.state.routeName}
             </Text>
             <View style={{width: '20%'}}></View>
           </View>
         </ImageBackground>
-      </TouchableOpacity>
+      </TouchableWithoutFeedback>
     </SafeAreaView>
   );
 };
