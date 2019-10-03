@@ -26,8 +26,8 @@ class HomeRecommendPackage extends Component {
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 15, marginTop: 5 }}>
                     {
                         (this.props.recommended) ?
-                            _.take(this.props.recommended, 2).map(recommend => (
-                                <TouchableOpacity style={ styles.card } onPress={() => this.props.navigation.navigate('PackageDetails', { package: recommend })} key={recommend.id}>
+                            _.take(this.props.recommended, 2).map((recommend, index) => (
+                                <TouchableOpacity style={(index === 1) ?  styles.cardPurple : styles.cardOrange  } onPress={() => this.props.navigation.navigate('PackageDetails', { package: recommend })} key={recommend.id}>
                                     <Text style={{ fontSize: 10, fontWeight: 'bold', color: 'white' }}>{ recommend.Category.name }</Text>
                                     <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>{ recommend.name } {(recommend.discount > 0) ? <Text>DISC { recommend.discount }% </Text> : null} </Text>
                                     <View style={{ flexDirection: 'row', marginTop: 5 }}>
@@ -42,7 +42,6 @@ class HomeRecommendPackage extends Component {
                             ))
                         : null
                     }
-                    {/* <Image source={require('../assets/loading.gif')} style={{ height: 100, width: 150 }} /> */}
                 </View>
             </View>
         )
@@ -58,11 +57,22 @@ const mapStateToProps = state => {
 export default withNavigation(connect(mapStateToProps)(HomeRecommendPackage))
 
 const styles = StyleSheet.create({
-    card : {
+    cardOrange : {
         height: 115, 
         width: 160, 
         borderRadius: 10, 
         backgroundColor: '#F9A11B', 
-        padding: 13
+        padding: 13,
+        elevation: 5
+    },
+
+    cardPurple: {
+        height: 115,
+        width: 160,
+        borderRadius: 10,
+        backgroundColor: '#CF55CE',
+        padding: 13, 
+        elevation: 5
     }
+    
 })

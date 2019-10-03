@@ -21,12 +21,16 @@ import {
   PackageDetails,
   NewBoostr,
   TeleponDanSms,
-  Roaming
+  Roaming,
+  DetailPaket,
+  Konfirmasi,
+  Login, 
+  Otp
 } from '../pages';
 
 const BerandaStack = createStackNavigator(
   {
-    Beranda, QuickMenu, Topup, PackageDetails, Aigo
+    Beranda, QuickMenu, Topup, PackageDetails, Aigo, DetailPaket, Konfirmasi, Login, Otp
   },
   {
     initialRouteName: 'Beranda',
@@ -39,7 +43,7 @@ const BerandaStack = createStackNavigator(
 
 const BeliPaketStack = createStackNavigator(
   {
-    BeliPaket, Internet, Recommended, NewBoostr, TeleponDanSms, Roaming, PackageDetails
+    BeliPaket, Internet, Recommended, NewBoostr, TeleponDanSms, Roaming, PackageDetails, Konfirmasi
   },
   {
     initialRouteName: 'BeliPaket',

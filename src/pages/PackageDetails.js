@@ -56,7 +56,7 @@ const PackageDetails = props => {
                 </View>
             </View>
             <View style={{ height: 50, justifyContent: 'center', alignItems: 'center', marginTop: 35 }}>
-                <TouchableOpacity style={{ width: 150, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#00E5BC', borderRadius: 20 }}>
+                <TouchableOpacity style={{ width: 150, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#00E5BC', borderRadius: 20 }} onPress={() => props.navigation.navigate('Konfirmasi', { package: props.navigation.state.params.package }) }>
                     <Text style={{ padding: 12, fontWeight: 'bold', color: 'white', fontSize: 20 }}>LANJUT</Text>
                     <Image source={require('../assets/icon/icon_arrow_right_white.webp')} style={{ height: 30, width: 30 }} />
                 </TouchableOpacity>

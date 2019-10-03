@@ -8,7 +8,10 @@ const HomeMenu = props => {
             <Image source={require('../assets/background/bg_home.webp')} style={{ resizeMode: 'cover', height: '130%', width: '100%', position: 'absolute', top: -75 }} />
             <View style={{ paddingHorizontal: 13, position: 'absolute', width: '100%' }}>
                 <View style={{ flexDirection: 'row', marginTop: 25}}>
-                    <Text style={{ paddingRight: 10, fontSize: 20, color: 'white' }}>Hai,</Text><Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold' }}>Areydra  ></Text>
+                    <Text style={{ paddingRight: 10, fontSize: 20, color: 'white' }}>Hai,</Text>
+                    <TouchableOpacity onPress={ () => props.navigation.navigate('Profile') }>
+                        <Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold' }}>Areydra  ></Text>
+                    </TouchableOpacity>
                 </View>
                 <View style={{ height: 55, marginTop: 15, borderTopRightRadius: 10, borderTopLeftRadius: 10, backgroundColor: '#EBEBED', width: '100%' }}>
                     <View style={{ padding: 10, flexDirection: 'row', justifyContent: 'space-between' }}>
