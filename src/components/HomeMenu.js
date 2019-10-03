@@ -25,7 +25,7 @@ const HomeMenu = props => {
                         </View>
                     </View>
                 </View>
-                <View style={{ height: 105, borderBottomRightRadius: 10, borderBottomLeftRadius: 10, backgroundColor: 'white', width: '100%', paddingTop: 15, justifyContent: 'center', flexDirection: 'row', zIndex: 1 }}>
+                <View style={{ height: 105,overflow:'hidden', borderBottomRightRadius: 10, borderBottomLeftRadius: 10, backgroundColor: 'white', width: '100%', paddingTop: 15, justifyContent: 'center', flexDirection: 'row', zIndex: 1 }}>
                     <TouchableOpacity style={{ marginHorizontal: 3.5, height: 53, width: 53, alignItems: 'center' }} onPress={ () => props.navigation.navigate('Recommended') }>
                         <View style={ styles.icon_menu }>
                             <Image source={ require('../assets/icon/icon_menu_recommended_3x.webp') } style={{ height: 46, width: 46 }} />

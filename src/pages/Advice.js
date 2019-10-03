@@ -10,13 +10,40 @@ import {
   ScrollView,
   ImageBackground,
   StatusBar,
+  ToastAndroid,
 } from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
+import {connect} from 'react-redux';
+import {postReport} from '../publics/redux/actions/report';
+
 class Advice extends React.Component {
-  state = {user: ''};
-  updateUser = user => {
-    this.setState({user: user});
+  state = {
+    UserId: '1',
+    complain: '',
+    choosenLabel: '',
+
+    allcomplain: '',
+  };
+
+  handlePostReport = async () => {
+    const data = {
+      complain: this.state.choosenLabel + ' berisi ' + this.state.complain,
+      UserId: this.state.UserId,
+    };
+    await this.props.dispatch(postReport(data));
+    await this._toastpatch();
+  };
+
+  _toastpatch = () => {
+    //function to make Toast With Duration, Gravity And Offset
+    ToastAndroid.showWithGravityAndOffset(
+      'Saran Anda berhasil dikirim, \n Terima kasih atas saran anda (/ ^^)/ ',
+      ToastAndroid.LONG, //can be SHORT, LONG
+      ToastAndroid.BOTTOM, //can be TOP, BOTTON, CENTER
+      25, //xOffset
+      50, //yOffset
+    );
   };
   render() {
     return (
@@ -47,35 +74,47 @@ class Advice extends React.Component {
               <View style={styles.picker}>
                 <Picker
                   style={{marginTop: 2}}
-                  selectedValue={this.state.user}
-                  onValueChange={this.updateUser}>
+                  selectedValue={this.state.choosenLabel}
+                  onValueChange={itemValue =>
+                    this.setState({choosenLabel: itemValue})
+                  }>
                   <Picker.Item label="- Pilih Kategori -" value="0" />
                   <Picker.Item
                     label="Saran Sinyal & Internet Akses"
-                    value="1"
+                    value="Saran Sinyal & Internet Akses"
                   />
-                  <Picker.Item label="Saran Paket & Promo" value="2" />
-                  <Picker.Item label="Saran Konten, RBT, Games" value="3" />
-                  <Picker.Item label="Saran Pemakaian AXISNET" value="4" />
-                  <Picker.Item label="Saran Lainnya" value="5" />
+                  <Picker.Item
+                    label="Saran Paket & Promo"
+                    value="Saran Paket & Promo"
+                  />
+                  <Picker.Item
+                    label="Saran Konten, RBT, Games"
+                    value="Saran Konten, RBT, Games"
+                  />
+                  <Picker.Item
+                    label="Saran Pemakaian AXISNET"
+                    value="Saran Pemakaian AXISNET"
+                  />
+                  <Picker.Item label="Saran Lainnya" value="Saran Lainnya" />
                 </Picker>
               </View>
             </View>
 
-            <View>
-              <Text style={styles.smalltext}>Email</Text>
+            {/*<View>
+             <Text style={styles.smalltext}>Email</Text>
               <TextInput
-                placeholder="Profiles name"
+                placeholder="Email Address"
                 style={styles.elementform}
-                value="Areydra@gmail.com"
+                onChangeText={text => this.setState({email: text})}
               />
-            </View>
+            </View> */}
             <TextInput
               placeholder="Tulis Pesan Anda"
               style={styles.textarea}
               //   value="Tulis Pesan Anda"
               multiline={true}
               numberOfLines={5}
+              onChangeText={text => this.setState({complain: text})}
             />
             <View
               styles={{
@@ -86,7 +125,9 @@ class Advice extends React.Component {
 
                 width: '100%',
               }}>
-              <TouchableOpacity style={styles.button}>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => this.handlePostReport()}>
                 <Text style={{color: 'white'}}>KIRIM</Text>
                 <Image
                   source={require('../assets/icon/ic_arrow_forward_white_18dp.png')}
@@ -101,7 +142,13 @@ class Advice extends React.Component {
   }
 }
 
-export default Advice;
+const mapStateToProps = state => {
+  return {
+    // report: state.report.report,
+  };
+};
+
+export default connect(mapStateToProps)(Advice);
 
 const styles = StyleSheet.create({
   container: {

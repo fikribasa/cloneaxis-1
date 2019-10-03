@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React from 'react';
+
 import SafeAreaView from 'react-native-safe-area-view';
 import {
   View,
@@ -8,6 +8,7 @@ import {
   Text,
   ImageBackground,
   StatusBar,
+  Image,
 } from 'react-native';
 import Footer from '../layouts/Footer';
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -15,32 +16,9 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
 // import AsyncStorage from '@react-native-community/async-storage';
 
-const DATA = [
-  {
-    id: '1',
-    date: '28 Sep 2019 16:02:06',
-    title: 'Axis',
-    message:
-      '<#> kata sandi kamu IB8J6u untuk bertransaksi/login AXISNET. /n Waspadai penipuan dan JANGAN share kode ini. Selamat menggunakan AXISNET. /n QzAPT8vQuhF',
-  },
-  {
-    id: '2',
-    date: '27 Sep 2019 16:02:06',
-    title: 'Axis',
-    message:
-      '<#> kata sandi kamu IB8J6u untuk bertransaksi/login AXISNET. /n Waspadai penipuan dan JANGAN share kode ini. Selamat menggunakan AXISNET. /n QzAPT8vQuhF',
-  },
-  {
-    id: '3',
-    date: '25 Sep 2019 16:02:06',
-    title: 'Axis',
-    message: 'Paket OBOR 14GB 10hr',
-  },
-];
-
 import {getNotification} from '../publics/redux/actions/notification';
 
-function Item({title, date, message}) {
+function Item({date, message}) {
   return (
     <TouchableOpacity>
       <Text style={styles.date}>{date}</Text>
@@ -58,7 +36,10 @@ class Notif extends React.Component {
 
   componentDidMount = async () => {
     await this.props.dispatch(getNotification(1));
-    await this.setState({notification: this.props.notification});
+    await new Promise(resolve => {
+      setTimeout(resolve, 1000);
+    });
+    await this.setState({notification: this.props.notification.rows});
   };
 
   render() {
@@ -77,17 +58,29 @@ class Notif extends React.Component {
           </ImageBackground>
         </TouchableOpacity>
         <SafeAreaView style={styles.container}>
-          <FlatList
-            data={DATA}
-            keyExtractor={item => item.id}
-            renderItem={({item}) => (
-              <Item
-                title={item.title}
-                date={item.date}
-                message={item.message}
+          {this.state.notification.length > 0 ? (
+            <FlatList
+              data={this.state.notification}
+              keyExtractor={item => item.id.toString()}
+              renderItem={({item}) => (
+                <Item date={item.createdAt} message={item.message} />
+              )}
+            />
+          ) : (
+            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+              <Image
+                source={require('../assets/icon/blank_notif.webp')}
+                style={{
+                  resizeMode: 'contain',
+                  width: 400,
+                  height: 400,
+                  fontSize: 14,
+                  color: '#6f2d91',
+                }}
               />
-            )}
-          />
+              <Text>Tidak Ada Notifikasi</Text>
+            </View>
+          )}
         </SafeAreaView>
         <Footer />
       </SafeAreaView>
@@ -131,13 +124,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    color: '#9257af',
+    color: '#6f2d91',
   },
 
   strip: {
     backgroundColor: '#F2F3F4',
     height: 3,
     marginBottom: 20,
+    marginTop: 10,
   },
   titletop: {
     paddingHorizontal: 10,

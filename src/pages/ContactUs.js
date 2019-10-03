@@ -20,17 +20,18 @@ const TabScreen = createMaterialTopTabNavigator(
     backBehavior: 'history',
     tabBarOptions: {
       activeTintColor: '#633689',
-      inactiveTintColor: '#D7DBDD',
+      inactiveTintColor: '#D2B4DE',
       style: {
         backgroundColor: 'transparent',
       },
       labelStyle: {
         textAlign: 'center',
-        fontSize: 15,
+        fontSize: 14,
+        fontWeight: 'bold',
       },
       indicatorStyle: {
-        borderBottomColor: '#5499C7',
-        borderBottomWidth: 3,
+        borderBottomColor: '#00CCCC',
+        borderBottomWidth: 2,
       },
     },
   },

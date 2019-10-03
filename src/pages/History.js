@@ -5,7 +5,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 import Header from '../layouts/HeaderHistory';
 
-import MyAxis from './MyAxis';
+import MyAxis from './Myaxis';
 import Transaction from './Transaction';
 import Usage from './Usage';
 
@@ -20,18 +20,19 @@ const TabScreen = createMaterialTopTabNavigator(
     animationEnabled: true,
     tabBarOptions: {
       activeTintColor: '#633689',
-      inactiveTintColor: '#D7DBDD',
+      inactiveTintColor: '#D2B4DE',
       style: {
         backgroundColor: 'transparent',
-        marginBottom: 8,
+        marginBottom: 2,
       },
       labelStyle: {
         textAlign: 'center',
         fontSize: 14,
+        fontWeight: 'bold',
       },
       indicatorStyle: {
-        borderBottomColor: '#87B56A',
-        borderBottomWidth: 3,
+        borderBottomColor: '#00CCCC',
+        borderBottomWidth: 2,
       },
     },
   },

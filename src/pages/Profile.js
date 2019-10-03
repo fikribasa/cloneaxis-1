@@ -8,12 +8,53 @@ import {
   ImageBackground,
   Dimensions,
   StatusBar,
+  ToastAndroid,
 } from 'react-native';
 import {TouchableOpacity, ScrollView} from 'react-native-gesture-handler';
 import React, {Component} from 'react';
 import SafeAreaView from 'react-native-safe-area-view';
 
-export default class Profile extends Component {
+import {connect} from 'react-redux';
+// import AsyncStorage from '@react-native-community/async-storage';
+import {getUser, patchUser} from '../publics/redux/actions/user';
+
+class Profile extends Component {
+  state = {
+    user: [],
+    newname: '',
+    newemail: '',
+  };
+
+  componentDidMount = async () => {
+    await this.props.dispatch(getUser(1));
+    await new Promise(resolve => {
+      setTimeout(resolve, 1000);
+    });
+    await this.setState({
+      newname: this.props.user.name,
+      newemail: this.props.user.newemail,
+    });
+    await this.setState({user: this.props.user});
+  };
+
+  handleEdit = async (newname, newemail) => {
+    const data = {name: this.state.newname, email: this.state.newemail};
+    await this.props.dispatch(patchUser(1, data)).then(async () => {
+      await this._toastpatch();
+    });
+  };
+
+  _toastpatch = () => {
+    //function to make Toast With Duration, Gravity And Offset
+    ToastAndroid.showWithGravityAndOffset(
+      'Update Success',
+      ToastAndroid.LONG, //can be SHORT, LONG
+      ToastAndroid.BOTTOM, //can be TOP, BOTTON, CENTER
+      25, //xOffset
+      50, //yOffset
+    );
+  };
+
   render() {
     return (
       <SafeAreaView style={{flex: 1}}>
@@ -54,27 +95,30 @@ export default class Profile extends Component {
             <View>
               <Text style={styles.smalltext}>Nama Panggilan</Text>
               <TextInput
-                placeholder="Profiles name"
+                placeholder="Nama User"
                 style={styles.elementform}
-                value=""
+                defaultValue={this.state.user.name}
+                onChangeText={text => this.setState({newname: text})}
               />
             </View>
 
             <View>
               <Text style={styles.smalltext}>Email</Text>
               <TextInput
-                placeholder="Email"
+                placeholder="Email User"
                 style={styles.elementform}
-                value=""
+                defaultValue={this.state.user.email}
+                onChangeText={text => this.setState({newemail: text})}
               />
             </View>
 
             <View>
               <Text style={styles.smalltext}>NOMOR HP</Text>
               <TextInput
-                placeholder="08XXXXXXXXXXX"
+                placeholder="Nomor HP"
                 style={styles.elementform}
-                value=""
+                value={this.state.user.phone}
+                editable={false}
               />
             </View>
 
@@ -85,9 +129,7 @@ export default class Profile extends Component {
                 marginTop: 40,
                 marginLeft: 100,
               }}>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() => alert('checkout')}>
+              <TouchableOpacity style={styles.button} onPress={this.handleEdit}>
                 <Text style={{color: 'white'}}>SIMPAN</Text>
                 <Image
                   source={require('../assets/icon/ic_arrow_forward_white_18dp.png')}
@@ -101,6 +143,14 @@ export default class Profile extends Component {
     );
   }
 }
+
+const mapStateProps = state => {
+  return {
+    user: state.user.users,
+  };
+};
+
+export default connect(mapStateProps)(Profile);
 
 const styles = StyleSheet.create({
   container: {
