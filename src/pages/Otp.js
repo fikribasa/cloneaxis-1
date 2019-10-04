@@ -24,6 +24,7 @@ class Otp extends Component {
                 await AsyncStorage.setItem('name', this.props.user.name)
                 await AsyncStorage.setItem('email', this.props.user.email)
                 await AsyncStorage.setItem('phone', this.props.user.phone)
+                await AsyncStorage.setItem('credit', this.props.user.credit.toString())
 
                  ToastAndroid.showWithGravity(
                      'Success login !',

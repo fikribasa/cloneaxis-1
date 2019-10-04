@@ -8,11 +8,25 @@ import {
   ScrollView,
   StatusBar,
   ImageBackground,
+  ToastAndroid
 } from 'react-native';
 import Footer from '../layouts/Footer';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-community/async-storage'
 
 const MyAxis = props => {
+  
+  const handleLogout = async () => {
+    await AsyncStorage.clear().then(() =>
+      props.navigation.navigate('AuthStack'),
+    );
+    ToastAndroid.showWithGravity(
+      'Berhasil logout',
+      ToastAndroid.LONG,
+      ToastAndroid.CENTER,
+    )
+  };
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBar translucent backgroundColor="transparent" />
@@ -120,7 +134,7 @@ const MyAxis = props => {
                 flexDirection: 'column',
                 flexDirection: 'row',
               }}
-              onPress={() => props.navigation.navigate('ContactUs')}>
+              onPress={() => props.navigation.navigate('PrivacyPolicy')}>
               <Text style={styles.item}>Kebijakan Privacy Policy</Text>
               <Image
                 source={require('../assets/icon/ic_chevron_right_purple.webp')}
@@ -152,13 +166,15 @@ const MyAxis = props => {
         <View style={styles.strip}></View>
 
         <View style={{flexDirection: 'column', paddingLeft: 8}}>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <TouchableOpacity
+            style={{flexDirection: 'row', justifyContent: 'space-between'}}
+            onPress={() => handleLogout()}>
             <Text style={styles.item}>Keluar</Text>
             <Image
               source={require('../assets/icon/ic_chevron_right_purple.webp')}
               style={styles.arrow}
             />
-          </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
       <Footer />
@@ -196,28 +212,30 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#5B2C6F',
     marginTop: 50,
+    marginLeft: 4,
   },
   subtitle: {
-    color: '#9257af',
+    color: '#6f2d91',
     fontSize: 18,
     fontWeight: 'bold',
   },
   item: {
     paddingHorizontal: 16,
-    color: '#9257af',
-    fontSize: 16,
+    color: '#6f2d91',
+    fontSize: 14,
     marginBottom: 16,
     fontWeight: 'bold',
   },
   icon: {
-    width: 40,
-    height: 40,
+    width: 30,
+    height: 30,
     marginRight: 8,
   },
   strip: {
     backgroundColor: '#F2F3F4',
-    height: 3,
+    height: 2,
     marginBottom: 20,
+    marginHorizontal: 4,
   },
   arrow: {
     width: 30,

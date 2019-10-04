@@ -8,6 +8,8 @@ export const getTransactions = id_user => {
 }
 
 export const createTransaction = (transaction, token) => {
+    console.log(transaction)
+    console.log(token)
     return{
         type: 'CREATE_TRANSACTION',
         payload: axios.post('https://mobile-provider-clone.herokuapp.com/transaction/', transaction, {

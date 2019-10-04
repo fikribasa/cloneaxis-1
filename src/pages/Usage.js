@@ -4,7 +4,6 @@ import SafeAreaView from 'react-native-safe-area-view';
 import Footer from '../layouts/Footer';
 import {withNavigation} from 'react-navigation';
 
-
 const USAGE = [
   {
     id: '1',
@@ -62,12 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: 16,
   },
-  item: {
-    backgroundColor: '#f9c2ff',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
+
   date: {
     fontSize: 10,
     marginRight: 4,
@@ -75,12 +69,12 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   type: {
-    fontSize: 18,
-    color: '#9257af',
+    fontSize: 16,
+    color: '#6f2d91',
   },
   price: {
-    fontSize: 20,
-    color: '#9257af',
+    fontSize: 16,
+    color: '#6f2d91',
     marginBottom: 4,
     fontWeight: 'bold',
     alignItems: 'center',

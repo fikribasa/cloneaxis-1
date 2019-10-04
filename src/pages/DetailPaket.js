@@ -37,7 +37,7 @@ class DetailPaket extends Component {
             <SafeAreaView style={{ flex: 1 }}>
                 <View style={{ height: 100, position: 'relative' }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center', width: '100%', marginTop: 20 }}>
-                        <TouchableOpacity onPress={() => thisprops.navigation.goBack()}>
+                        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                             <Image source={require('../assets/icon/ic_chevron_left_primary_24dp.png')} style={{ height: 40, width: 40 }} />
                         </TouchableOpacity>
                         <Text style={{ paddingLeft: '25%', fontWeight: 'bold', color: '#704D88', fontSize: 17 }}>DETAIL PAKET</Text>

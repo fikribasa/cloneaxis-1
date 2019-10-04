@@ -10,14 +10,60 @@ import {
   ScrollView,
   ImageBackground,
   StatusBar,
+  ToastAndroid,
 } from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
+import {connect} from 'react-redux';
+import {postReport} from '../publics/redux/actions/report';
+import AsyncStorage from '@react-native-community/async-storage';
+
 class Advice extends React.Component {
-  state = {user: ''};
-  updateUser = user => {
-    this.setState({user: user});
+  state = {
+    UserId: '',
+    complain: '',
+    choosenLabel: '',
+    email: '',
+    allcomplain: '',
+    token: ''
   };
+
+  componentDidMount = async () => {
+    await AsyncStorage.getItem('id_user').then(id_user => {
+      this.setState({UserId: id_user});
+    });
+    await AsyncStorage.getItem('email').then(email => {
+      this.setState({email: email});
+    });
+    await AsyncStorage.getItem('token').then(token => {
+      this.setState({ token: token });
+    });
+  };
+  handlePostReport = async () => {
+    const data = {
+      complain:
+        this.state.email +
+        ' mengirimkan ' +
+        this.state.choosenLabel +
+        ' berisi ' +
+        this.state.complain,
+      UserId: this.state.UserId,
+    };
+    await this.props.dispatch(postReport(data, this.state.token));
+    await this._toastpatch();
+  };
+
+  _toastpatch = () => {
+    //function to make Toast With Duration, Gravity And Offset
+    ToastAndroid.showWithGravityAndOffset(
+      'Terimakasih atas saran yang kamu berikan',
+      ToastAndroid.LONG, //can be SHORT, LONG
+      ToastAndroid.BOTTOM, //can be TOP, BOTTON, CENTER
+      25, //xOffset
+      50, //yOffset
+    );
+  };
+
   render() {
     return (
       <SafeAreaView style={{flex: 1}}>
@@ -47,17 +93,28 @@ class Advice extends React.Component {
               <View style={styles.picker}>
                 <Picker
                   style={{marginTop: 2}}
-                  selectedValue={this.state.user}
-                  onValueChange={this.updateUser}>
+                  selectedValue={this.state.choosenLabel}
+                  onValueChange={itemValue =>
+                    this.setState({choosenLabel: itemValue})
+                  }>
                   <Picker.Item label="- Pilih Kategori -" value="0" />
                   <Picker.Item
                     label="Saran Sinyal & Internet Akses"
-                    value="1"
+                    value="Saran Sinyal & Internet Akses"
                   />
-                  <Picker.Item label="Saran Paket & Promo" value="2" />
-                  <Picker.Item label="Saran Konten, RBT, Games" value="3" />
-                  <Picker.Item label="Saran Pemakaian AXISNET" value="4" />
-                  <Picker.Item label="Saran Lainnya" value="5" />
+                  <Picker.Item
+                    label="Saran Paket & Promo"
+                    value="Saran Paket & Promo"
+                  />
+                  <Picker.Item
+                    label="Saran Konten, RBT, Games"
+                    value="Saran Konten, RBT, Games"
+                  />
+                  <Picker.Item
+                    label="Saran Pemakaian AXISNET"
+                    value="Saran Pemakaian AXISNET"
+                  />
+                  <Picker.Item label="Saran Lainnya" value="Saran Lainnya" />
                 </Picker>
               </View>
             </View>
@@ -65,9 +122,10 @@ class Advice extends React.Component {
             <View>
               <Text style={styles.smalltext}>Email</Text>
               <TextInput
-                placeholder="Profiles name"
+                placeholder="Email Address"
                 style={styles.elementform}
-                value="Areydra@gmail.com"
+                defaultValue={this.state.email}
+                onChangeText={text => this.setState({email: text})}
               />
             </View>
             <TextInput
@@ -76,6 +134,7 @@ class Advice extends React.Component {
               //   value="Tulis Pesan Anda"
               multiline={true}
               numberOfLines={5}
+              onChangeText={text => this.setState({complain: text})}
             />
             <View
               styles={{
@@ -86,7 +145,9 @@ class Advice extends React.Component {
 
                 width: '100%',
               }}>
-              <TouchableOpacity style={styles.button}>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => this.handlePostReport()}>
                 <Text style={{color: 'white'}}>KIRIM</Text>
                 <Image
                   source={require('../assets/icon/ic_arrow_forward_white_18dp.png')}
@@ -101,7 +162,7 @@ class Advice extends React.Component {
   }
 }
 
-export default Advice;
+export default connect()(Advice);
 
 const styles = StyleSheet.create({
   container: {
@@ -143,6 +204,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     height: 100,
     paddingLeft: 10,
+    top: 5,
   },
   smalltext: {
     fontSize: 12,

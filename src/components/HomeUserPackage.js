@@ -11,12 +11,12 @@ class HomeUserPackage extends Component {
     state = {
         product : []
     }
-    componentDidMount = () => {
-        AsyncStorage.getItem('id_user').then(async(id_user) => {
-            await this.props.dispatch(getTransactions(id_user))
+    componentDidMount = async() => {
+        await AsyncStorage.getItem('id_user').then((id_user) => {
+            this.props.dispatch(getTransactions(id_user))
         })
 
-        this.setState({ product: _.take(this.props.transactions.rows, 1) })
+        await this.setState({ product: _.take(this.props.transactions.rows, 1) })
     }   
 
     render() { 
@@ -43,11 +43,12 @@ class HomeUserPackage extends Component {
                     <View style={{ height: 130, marginHorizontal: 15, marginTop: 20, borderRadius: 10, backgroundColor: 'white', elevation: 3, padding: 10 }}>
                         {
                             this.state.product.map(prod => (
+                                <View key={prod.id}>
                                     <Text key='1' style={{ fontSize: 18, fontWeight: 'bold', color: '#391449' }}>{ prod.Product.name }  {prod.Product.duration}HR, Rp{prod.Product.discprice}</Text>
-                            
-                                ))
-                            }
-                        <Text style={{ fontSize: 12, color: '#CAC8C9' }}>Berlaku sampai 15 Des 2019</Text>
+                                    <Text style={{ fontSize: 12, color: '#CAC8C9' }}>Berlaku sampai 15 Des 2019</Text>
+                                </View>
+                            ))
+                        }
                         <View style={{ height: 20, backgroundColor: '#F4BC1F', borderRadius: 20, marginTop: 10 }}></View>
                         {/* <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                             <Text style={{ color: '#CAC8C9' }}>Nelp (ke Operator lain)</Text>

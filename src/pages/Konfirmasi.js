@@ -9,33 +9,54 @@ import { createTransaction } from '../publics/redux/actions/transactions'
 
 class Konfirmasi extends Component {
     state = { 
-        phone : 0
+        phone : 0,
+        credit: 0
      }
 
     componentDidMount = async () => {
         await AsyncStorage.getItem('phone').then(phone => {
             this.setState({ phone })
         })
+        await AsyncStorage.getItem('credit').then((credit) => {
+            this.setState({ credit })
+        })
+
     }
 
     handleCheckout = () => {
-        AsyncStorage.getItem('id_user').then(id_user => {
-            let data = {
-                UserId: id_user,
-                ProductId: this.props.navigation.state.params.package.id
-            }
+        if (this.props.navigation.state.params.package.discprice > parseInt(this.state.credit)){
+            ToastAndroid.showWithGravity(
+                'Maaf pulsa kamu tidak cukup untuk membeli paket ini',
+                ToastAndroid.LONG,
+                ToastAndroid.CENTER,
+            )
+        }else{
+            AsyncStorage.getItem('id_user').then(id_user => {
+                let data = {
+                    UserId: id_user,
+                    ProductId: this.props.navigation.state.params.package.id
+                }
+                AsyncStorage.getItem('token').then(token => {
+                    this.props.dispatch(createTransaction(data, token)).then(() => {
+                            let totalCredit = this.state.credit - this.props.navigation.state.params.package.discprice
 
-            AsyncStorage.getItem('token').then(token => {
-                this.props.dispatch(createTransaction(data, token)).then(() => {
-                    ToastAndroid.showWithGravity(
-                        'Success checkout',
-                        ToastAndroid.LONG,
-                        ToastAndroid.CENTER,
-                    )
-                    this.props.navigation.navigate('Beranda')
+                            AsyncStorage.setItem('credit', totalCredit.toString())
+                            ToastAndroid.showWithGravity(
+                                'Berhasil membeli paket',
+                                ToastAndroid.LONG,
+                                ToastAndroid.CENTER,
+                            )
+                            this.props.navigation.navigate('Beranda')
+                        }).catch(() => {
+                            ToastAndroid.showWithGravity(
+                                'Kamu sudah membeli paket ini. Cek di detail paket',
+                                ToastAndroid.LONG,
+                                ToastAndroid.CENTER,
+                            )
+                        })
                 })
             })
-        })
+        }
     }
     render() { 
         return (
@@ -87,7 +108,13 @@ class Konfirmasi extends Component {
     }
 }
 
-export default withNavigation(connect()(Konfirmasi))
+const mapStateToProps = state => {
+    return{
+        isRejected : state.transactions.isRejected
+    }
+}
+
+export default withNavigation(connect(mapStateToProps)(Konfirmasi))
 
 const styles = StyleSheet.create({
     pulsa: {
