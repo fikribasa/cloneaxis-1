@@ -19,7 +19,7 @@ const Beranda = props => {
       <StatusBar translucent backgroundColor="transparent" />
       <TouchableOpacity style={{flexDirection: 'row-reverse'}}>
         <ImageBackground
-          source={require('../assets/icon/graphic_header.png')}
+          source={require('../assets/icon/header_profile.png')}
           style={styles.headerbg}>
           <View style={styles.header}>
             <TouchableOpacity

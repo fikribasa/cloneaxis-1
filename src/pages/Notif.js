@@ -52,7 +52,7 @@ class Notif extends React.Component {
         <StatusBar translucent backgroundColor="transparent" />
         <TouchableOpacity style={{flexDirection: 'row-reverse'}}>
           <ImageBackground
-            source={require('../assets/icon/graphic_header.png')}
+            source={require('../assets/icon/header_profile.png')}
             style={styles.headerbg}>
             <View style={styles.header}>
               <Text style={styles.titletop}>Notifikasi</Text>

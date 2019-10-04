@@ -25,29 +25,33 @@ class Profile extends Component {
 
   componentDidMount = async () => {
     await AsyncStorage.getItem('id_user').then(id_user => {
-      this.setState(prevState => ({...prevState.user['UserId'] = id_user}));
+      this.setState(prevState => ({...(prevState.user['UserId'] = id_user)}));
     });
     await AsyncStorage.getItem('name').then(name => {
-      this.setState(prevState => ({ ...prevState.user['name'] = name }));
+      this.setState(prevState => ({...(prevState.user['name'] = name)}));
     });
     await AsyncStorage.getItem('email').then(email => {
-      this.setState(prevState => ({ ...prevState.user['email'] = email }));
+      this.setState(prevState => ({...(prevState.user['email'] = email)}));
     });
     await AsyncStorage.getItem('phone').then(phone => {
-      this.setState(prevState => ({ ...prevState.user['phone'] = phone }));
+      this.setState(prevState => ({...(prevState.user['phone'] = phone)}));
     });
     await AsyncStorage.getItem('token').then(token => {
-      this.setState(prevState => ({ ...prevState.user['token'] = token }));
+      this.setState(prevState => ({...(prevState.user['token'] = token)}));
     });
   };
 
   handleEdit = async () => {
-    if(this.state.newname.length > 0 || this.state.newemail.length > 0){
+    if (this.state.newname.length > 0 || this.state.newemail.length > 0) {
       const data = {name: this.state.newname, email: this.state.newemail};
-      await this.props.dispatch(patchUser(this.state.user.UserId, data, this.state.user.token)).then(async () => {
-        await this._toastpatch();
-      });
-    }else{
+      await this.props
+        .dispatch(
+          patchUser(this.state.user.UserId, data, this.state.user.token),
+        )
+        .then(async () => {
+          await this._toastpatch();
+        });
+    } else {
       ToastAndroid.showWithGravityAndOffset(
         'Tidak ada perubahan',
         ToastAndroid.LONG, //can be SHORT, LONG
@@ -75,7 +79,7 @@ class Profile extends Component {
         <StatusBar translucent backgroundColor="transparent" />
         <TouchableOpacity style={{flexDirection: 'row-reverse'}}>
           <ImageBackground
-            source={require('../assets/icon/graphic_header.png')}
+            source={require('../assets/icon/header_profile.png')}
             style={styles.headerbg}>
             <View style={styles.header}>
               <TouchableOpacity

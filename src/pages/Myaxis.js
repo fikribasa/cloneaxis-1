@@ -8,14 +8,13 @@ import {
   ScrollView,
   StatusBar,
   ImageBackground,
-  ToastAndroid
+  ToastAndroid,
 } from 'react-native';
 import Footer from '../layouts/Footer';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import AsyncStorage from '@react-native-community/async-storage'
+import AsyncStorage from '@react-native-community/async-storage';
 
 const MyAxis = props => {
-  
   const handleLogout = async () => {
     await AsyncStorage.clear().then(() =>
       props.navigation.navigate('AuthStack'),
@@ -24,7 +23,7 @@ const MyAxis = props => {
       'Berhasil logout',
       ToastAndroid.LONG,
       ToastAndroid.CENTER,
-    )
+    );
   };
 
   return (
@@ -32,7 +31,7 @@ const MyAxis = props => {
       <StatusBar translucent backgroundColor="transparent" />
       <TouchableOpacity style={{flexDirection: 'row-reverse'}}>
         <ImageBackground
-          source={require('../assets/icon/graphic_header.png')}
+          source={require('../assets/icon/header_profile.png')}
           style={styles.headerbg}>
           <View style={styles.header}>
             <Text style={styles.title}>Lainnya</Text>
