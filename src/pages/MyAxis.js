@@ -8,29 +8,30 @@ import {
   ScrollView,
   StatusBar,
   ImageBackground,
+  ToastAndroid,
 } from 'react-native';
 import Footer from '../layouts/Footer';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-
-handleLogout = async () => {
-  await AsyncStorage.clear().then(() =>
-    this.state.navigation.navigate('Login'),
-  );
-
-  ToastAndroid.showWithGravity(
-    'Anda Berhasil Keluar',
-    ToastAndroid.LONG,
-    ToastAndroid.CENTER,
-  );
-};
+import AsyncStorage from '@react-native-community/async-storage';
 
 const MyAxis = props => {
+  const handleLogout = async () => {
+    await AsyncStorage.clear().then(() =>
+      props.navigation.navigate('AuthStack'),
+    );
+    ToastAndroid.showWithGravity(
+      'Berhasil logout',
+      ToastAndroid.LONG,
+      ToastAndroid.CENTER,
+    );
+  };
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBar translucent backgroundColor="transparent" />
       <TouchableOpacity style={{flexDirection: 'row-reverse'}}>
         <ImageBackground
-          source={require('../assets/icon/graphic_header.png')}
+          source={require('../assets/icon/header_profile.png')}
           style={styles.headerbg}>
           <View style={styles.header}>
             <Text style={styles.title}>Lainnya</Text>
@@ -166,7 +167,7 @@ const MyAxis = props => {
         <View style={{flexDirection: 'column', paddingLeft: 8}}>
           <TouchableOpacity
             style={{flexDirection: 'row', justifyContent: 'space-between'}}
-            onPress={() => this.handleLogout}>
+            onPress={() => handleLogout()}>
             <Text style={styles.item}>Keluar</Text>
             <Image
               source={require('../assets/icon/ic_chevron_right_purple.webp')}
