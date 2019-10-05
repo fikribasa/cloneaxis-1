@@ -25,8 +25,8 @@ class Semua extends Component {
                     {
                         (axispass) ?
                             axispass.map(item => (
-                                <View style={styles.cardContainer}>
-                                    <TouchableOpacity style={styles.card} key={item.id} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: item }) }>
+                                <View style={styles.cardContainer} key={item.id}>
+                                    <TouchableOpacity style={styles.card} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: item }) }>
                                         <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>{item.name} {(item.discount > 0) ? <Text>({item.discount}% OFF)</Text> : null} </Text>
                                         <View style={{ flexDirection: 'row', marginTop: 5 }}>
                                             <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
@@ -54,8 +54,8 @@ class Semua extends Component {
                     {
                         (internetmabrur) ?
                             internetmabrur.map(item => (
-                                <View style={styles.cardContainer}>
-                                    <TouchableOpacity style={styles.card} key={item.id} onPress={() => this.props.navigation.navigate('PackageDetails', { package: item })}>
+                                <View style={styles.cardContainer} key={item.id}>
+                                    <TouchableOpacity style={styles.card} onPress={() => this.props.navigation.navigate('PackageDetails', { package: item })}>
                                         <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>{item.name} {(item.discount > 0) ? <Text>({item.discount}% OFF)</Text> : null} </Text>
                                         <View style={{ flexDirection: 'row', marginTop: 5 }}>
                                             <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
@@ -83,8 +83,8 @@ class Semua extends Component {
                     {
                         (combomabrur) ?
                             combomabrur.map(item => (
-                                <View style={styles.cardContainer}>
-                                    <TouchableOpacity style={styles.card} key={item.id} onPress={() => this.props.navigation.navigate('PackageDetails', { package: item })}>
+                                <View style={styles.cardContainer} key={item.id}>
+                                    <TouchableOpacity style={styles.card} onPress={() => this.props.navigation.navigate('PackageDetails', { package: item })}>
                                         <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>{item.name} {(item.discount > 0) ? <Text>({item.discount}% OFF)</Text> : null} </Text>
                                         <View style={{ flexDirection: 'row', marginTop: 5 }}>
                                             <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
@@ -112,8 +112,8 @@ class Semua extends Component {
                     {
                         (mabrurnelpdansms) ?
                             mabrurnelpdansms.map(item => (
-                                <View style={styles.cardContainer}>
-                                    <TouchableOpacity style={styles.card} key={item.id} onPress={() => this.props.navigation.navigate('PackageDetails', { package: item })}>
+                                <View style={styles.cardContainer} key={item.id}>
+                                    <TouchableOpacity style={styles.card} onPress={() => this.props.navigation.navigate('PackageDetails', { package: item })}>
                                         <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>{item.name} {(item.discount > 0) ? <Text>({item.discount}% OFF)</Text> : null} </Text>
                                         <View style={{ flexDirection: 'row', marginTop: 5 }}>
                                             <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>

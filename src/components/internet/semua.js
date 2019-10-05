@@ -28,8 +28,8 @@ class Semua extends Component {
                     {
                         (bronet) ?
                             bronet.map(bro => (
-                                <View style={ styles.cardContainer }>
-                                    <TouchableOpacity style={styles.card} key={bro.id} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: bro }) }>
+                                <View style={ styles.cardContainer } key={bro.id}>
+                                    <TouchableOpacity style={styles.card} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: bro }) }>
                                         <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>{bro.name} {(bro.discount > 0) ? <Text>({bro.discount}% OFF)</Text> : null} </Text>
                                         <View style={{ flexDirection: 'row', marginTop: 5 }}>
                                             <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
@@ -57,8 +57,8 @@ class Semua extends Component {
                     {
                         (owsem) ?
                             owsem.map(ow => (
-                                <View style={styles.cardContainer}>
-                                    <TouchableOpacity style={styles.card} key={ow.id} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: ow }) }>
+                                <View style={styles.cardContainer} key={ow.id}>
+                                    <TouchableOpacity style={styles.card} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: ow }) }>
                                         <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>{ow.name} {(ow.discount > 0) ? <Text>({ow.discount}% OFF)</Text> : null} </Text>
                                         <View style={{ flexDirection: 'row', marginTop: 5 }}>
                                             <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
@@ -86,8 +86,8 @@ class Semua extends Component {
                     {
                         (obor) ?
                             obor.map(ob => (
-                                <View style={styles.cardContainer}>
-                                    <TouchableOpacity style={styles.card} key={ob.id} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: ob }) }>
+                                <View style={styles.cardContainer} key={ob.id}>
+                                    <TouchableOpacity style={styles.card} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: ob }) }>
                                         <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>{ob.name} {(ob.discount > 0) ? <Text>({ob.discount}% OFF)</Text> : null} </Text>
                                         <View style={{ flexDirection: 'row', marginTop: 5 }}>
                                             <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
@@ -115,8 +115,8 @@ class Semua extends Component {
                     {
                         (raburawit) ?
                             raburawit.map(rabu => (
-                                <View style={styles.cardContainer}>
-                                    <TouchableOpacity style={styles.card} key={rabu.id} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: rabu }) }>
+                                <View style={styles.cardContainer} key={rabu.id}>
+                                    <TouchableOpacity style={styles.card} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: rabu }) }>
                                         <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>{rabu.name} {(rabu.discount > 0) ? <Text>({rabu.discount}% OFF)</Text> : null} </Text>
                                         <View style={{ flexDirection: 'row', marginTop: 5 }}>
                                             <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
