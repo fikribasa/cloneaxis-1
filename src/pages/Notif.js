@@ -49,6 +49,7 @@ class Notif extends React.Component {
   render() {
     return (
       <SafeAreaView style={{flex: 1}}>
+        {console.log(this.state.UserId)}
         <StatusBar translucent backgroundColor="transparent" />
         <TouchableOpacity style={{flexDirection: 'row-reverse'}}>
           <ImageBackground
@@ -77,8 +78,6 @@ class Notif extends React.Component {
                   resizeMode: 'contain',
                   width: 400,
                   height: 400,
-                  fontSize: 14,
-                  color: '#6f2d91',
                 }}
               />
               <Text>Tidak Ada Notifikasi</Text>

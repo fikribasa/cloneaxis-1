@@ -30,10 +30,14 @@ class Transaction extends Component {
   state = {
     transaction: [],
     UserId: '',
+    token: '',
   };
   componentDidMount = async () => {
     await AsyncStorage.getItem('id_user').then(id_user => {
       this.setState({UserId: id_user});
+    });
+    await AsyncStorage.getItem('token').then(token => {
+      this.setState({token: {token: token}});
     });
 
     await this.props.dispatch(getTransaction(this.state.UserId));
@@ -46,7 +50,7 @@ class Transaction extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        {console.log('transaction', this.state.transaction)}
+        {console.log('transaction', this.state.token)}
         {this.state.transaction.length > 0 ? (
           <FlatList
             data={this.state.transaction}
