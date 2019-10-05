@@ -32,11 +32,13 @@ class DetailPaket extends Component {
       await this.props.dispatch(deleteTransaction(id, token)).then(() => {
         let products = this.state.products.filter(product => product.id !== id);
         this.setState({products});
-        ToastAndroid.showWithGravity(
+        ToastAndroid.showWithGravityAndOffset(
           'Berhasil berhenti paket',
-          ToastAndroid.LONG,
-          ToastAndroid.CENTER,
-        );
+          ToastAndroid.SHORT,
+          ToastAndroid.BOTTOM,
+          3, //xOffset
+          200, //yOffset
+        )
       });
     });
   };

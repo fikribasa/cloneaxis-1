@@ -20,14 +20,14 @@ class HomeRecommendPackage extends Component {
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'space-between',
-            marginVertical: 10,
+            marginVertical: 10
           }}>
           <Text
             style={{
               fontWeight: 'bold',
               fontSize: 14,
               color: '#362251',
-              paddingLeft: 20,
+              paddingLeft: 20
             }}>
             Rekomendasi untukmu
           </Text>
@@ -35,7 +35,7 @@ class HomeRecommendPackage extends Component {
             style={{
               flexDirection: 'row',
               alignItems: 'center',
-              paddingRight: 7,
+              paddingRight: 7
             }}>
             <TouchableOpacity
               onPress={() => this.props.navigation.navigate('Recommended')}>
@@ -44,7 +44,7 @@ class HomeRecommendPackage extends Component {
                   fontWeight: 'bold',
                   fontSize: 15,
                   marginRight: 10,
-                  color: '#DE4DA4',
+                  color: '#DE4DA4'
                 }}>
                 LIHAT SEMUA
               </Text>
@@ -58,13 +58,13 @@ class HomeRecommendPackage extends Component {
         <View
           style={{
             flexDirection: 'row',
-            justifyContent: 'space-between',
-            paddingHorizontal: 15,
-            marginTop: 5,
+            justifyContent: 'center',
+            marginTop: 5
           }}>
           {this.props.recommended
             ? _.take(this.props.recommended, 2).map((recommend, index) => (
-                <TouchableOpacity
+              <View style={{ overflow: 'hidden', height: 115, width: 160, borderRadius: 10, elevation: 5 }} key={ index }>
+                  <TouchableOpacity
                   style={index === 1 ? styles.cardPurple : styles.cardOrange}
                   onPress={() =>
                     this.props.navigation.navigate('PackageDetails', {
@@ -113,6 +113,7 @@ class HomeRecommendPackage extends Component {
                     Masa aktif {recommend.duration} hari
                   </Text>
                 </TouchableOpacity>
+                </View>
               ))
             : null}
         </View>
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#F9A11B',
     padding: 13,
-    // elevation: 5,
+    marginRight: 5
   },
 
   cardPurple: {
@@ -145,6 +146,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#CF55CE',
     padding: 13,
-    // elevation: 5,
-  },
+    marginLeft: 5
+  }
 });

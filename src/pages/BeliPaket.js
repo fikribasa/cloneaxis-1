@@ -25,10 +25,14 @@ const TabScreen = createMaterialTopTabNavigator(
     swipeEnabled: true,
     animationEnabled: true,
     tabBarOptions: {
+      scrollEnabled: true,
       activeTintColor: '#633689',
       inactiveTintColor: 'grey',
       style: {
         backgroundColor: 'transparent',
+      },
+      tabStyle: {
+        width: 105,
       },
       labelStyle: {
         textAlign: 'center',
