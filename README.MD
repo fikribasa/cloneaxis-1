@@ -1,7 +1,79 @@
-# Demo
+<h1 align='center'>chat.io! React-Native Chat App</h1>
 
-#### Link download https://bit.ly/2W0fre0
+## Table of Contents
 
+- [Introduction](#introduction)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Usage](#usage-for-development)
+- [Screenshots](#screenshots)
+- [Release APK](#release-apk)
 
-![](https://imgur.com/2ltPLLe.gif)         ![](https://imgur.com/34hq0uR.gif)       ![](https://imgur.com/jW3CSX5.gif)
+## Introduction
+clone app myAxis. myAxis is a provider telecomunication in indonesia.
 
+## Features
+* Buy package
+* Login verification with email and phone number
+* And others
+
+## Requirements
+* [`react-native`](https://facebook.github.io/react-native/docs/getting-started)
+* [`react-native-cli`](https://facebook.github.io/react-native/docs/getting-started)
+* [`Setting Up Provider Clone Backend`](https://github.com/fastaman993/provider-clone-backend)
+* [`Setting Up Axios`](https://github.com/axios/axios)
+
+## Usage for development
+1. Open your terminal or command prompt
+2. Type `git clone https://github.com/areydras/provider-clone-mobile.git`
+3. Open the folder and type `npm install` for install dependencies
+4. Before run this, you must run provider-clone-backend
+5. Type `react-native run-android` for run this app. ***Make sure your device is connected with debugging mode***.
+
+## Screenshots
+<p align="center">
+    <span>
+      ![](https://imgur.com/2ltPLLe.gif)         ![](https://imgur.com/34hq0uR.gif)       ![](https://imgur.com/jW3CSX5.gif)
+    </span>
+    
+  </p>
+  <p align="center">
+    <span>
+      <img src="https://raw.githubusercontent.com/rozy97/pic/master/Screenshot_20191021-125851.jpg" width="250px" />
+      &nbsp;&nbsp;
+      <img src="https://raw.githubusercontent.com/rozy97/pic/master/Screenshot_20191021-125904.jpg" width="250px" />
+      &nbsp;&nbsp;
+      <img src="https://raw.githubusercontent.com/rozy97/pic/master/Screenshot_20191021-125921.jpg" width="250px" />
+    </span>
+    
+  </p>
+
+## Release APK
+<a href="https://bit.ly/2W0fre0">
+  <im src="https://img.shields.io/badge/Download-drive-blue"/>
+</a>
+
+## Contributors
+
+<table border="0">
+  <tr>
+    <td align="center">
+      <a href="https://github.com/fikribasa">
+        <img width="110" src="https://avatars0.githubusercontent.com/u/34205138?s=460&v=4"><br/>
+          <sub><b>Fikri Basa</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Oreki13">
+        <img width="110" src="https://avatars2.githubusercontent.com/u/52338405?s=460&v=4"><br/>
+          <sub><b>Arfandy</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/fastaman993">
+        <img width="110" src="https://avatars2.githubusercontent.com/u/54013498?s=460&v=4"><br/>
+          <sub><b>Adhy F. Khoirot</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
