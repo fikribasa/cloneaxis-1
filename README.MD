@@ -1,4 +1,4 @@
-<h1 align='center'>chat.io! React-Native Chat App</h1>
+<h1 align='center'>Provider Clone Mobile (myAxis)</h1>
 
 ## Table of Contents
 
@@ -31,26 +31,20 @@ clone app myAxis. myAxis is a provider telecomunication in indonesia.
 5. Type `react-native run-android` for run this app. ***Make sure your device is connected with debugging mode***.
 
 ## Screenshots
-<p align="center">
-    <span>
-      ![](https://imgur.com/2ltPLLe.gif)         ![](https://imgur.com/34hq0uR.gif)       ![](https://imgur.com/jW3CSX5.gif)
-    </span>
-    
-  </p>
   <p align="center">
     <span>
-      <img src="https://raw.githubusercontent.com/rozy97/pic/master/Screenshot_20191021-125851.jpg" width="250px" />
+      <img src="https://imgur.com/2ltPLLe.gif" width="250px" />
       &nbsp;&nbsp;
-      <img src="https://raw.githubusercontent.com/rozy97/pic/master/Screenshot_20191021-125904.jpg" width="250px" />
+      <img src="https://imgur.com/34hq0uR.gif" width="250px" />
       &nbsp;&nbsp;
-      <img src="https://raw.githubusercontent.com/rozy97/pic/master/Screenshot_20191021-125921.jpg" width="250px" />
+      <img src="https://imgur.com/jW3CSX5.gif" width="250px" />
     </span>
     
   </p>
 
 ## Release APK
 <a href="https://bit.ly/2W0fre0">
-  <im src="https://img.shields.io/badge/Download-drive-blue"/>
+  Download here
 </a>
 
 ## Contributors
