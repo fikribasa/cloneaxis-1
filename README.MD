@@ -1,5 +1,7 @@
 <h1 align='center'>Provider Clone Mobile (myAxis)</h1>
-
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Axis_logo_2015.svg/1200px-Axis_logo_2015.svg.png" width="250"/>
+</p>
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -21,6 +23,7 @@ clone app myAxis. myAxis is a provider telecomunication in indonesia.
 * [`react-native`](https://facebook.github.io/react-native/docs/getting-started)
 * [`react-native-cli`](https://facebook.github.io/react-native/docs/getting-started)
 * [`Setting Up Provider Clone Backend`](https://github.com/fastaman993/provider-clone-backend)
+* [`Setting Up Provider Clone Admin Page (website)`](https://github.com/Oreki13/adminPage)
 * [`Setting Up Axios`](https://github.com/axios/axios)
 
 ## Usage for development
