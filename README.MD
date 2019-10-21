@@ -3,9 +3,7 @@
 #### Link download https://bit.ly/2W0fre0
 
 
-![](https://imgur.com/NUmI1i3.gif) 
-
-![](https://imgur.com/pIJ6YYe.gif)
+![](https://imgur.com/NUmI1i3.gif) ![https://imgur.com/a/wRcjVae.gif]()
 
 ![](https://i.imgur.com/oKK78wu.gif)
 
