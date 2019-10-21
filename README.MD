@@ -56,6 +56,12 @@ clone app myAxis. myAxis is a provider telecomunication in indonesia.
 <table border="0">
   <tr>
     <td align="center">
+      <a href="https://github.com/areydras">
+        <img width="110" src="https://avatars3.githubusercontent.com/u/10308406?s=460&v=4"><br/>
+          <sub><b>Areydra</b></sub>
+      </a>
+    </td>
+    <td align="center">
       <a href="https://github.com/fikribasa">
         <img width="110" src="https://avatars0.githubusercontent.com/u/34205138?s=460&v=4"><br/>
           <sub><b>Fikri Basa</b></sub>
