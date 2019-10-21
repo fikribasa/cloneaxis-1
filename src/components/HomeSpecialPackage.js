@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native'
 import { withNavigation } from 'react-navigation'
 
 const HomeSpecialPackage = props => {
@@ -13,17 +13,17 @@ const HomeSpecialPackage = props => {
             </View>
             <View style={{ height: 250, marginTop: -15 }}>
                 <ScrollView horizontal showsHorizontalScrollIndicator={ false } style={{ flexDirection: 'row', paddingLeft: 15, marginTop: 20, height: 20 }}>
-                    <View style={{ height: 230, width: 170, paddingVertical: 25, alignItems: 'center', backgroundColor: 'white'}} >
-                        <TouchableOpacity style={{ height: 165, width: '100%', borderRadius: 10, backgroundColor: 'white', padding: 13, width: 150, elevation: 7 }} onPress={() => props.navigation.navigate('PackageDetails')} activeOpacity={0.7}>
+                    <View style={{ height: 200, width: 170, paddingVertical: 25, alignItems: 'center', backgroundColor: 'white'}} >
+                        <View style={{ height: 165, width: '100%', borderRadius: 10, backgroundColor: 'white', padding: 13, width: 150, elevation: 3 }}>
                             <Image source={require('../assets/brand/line.png')} style={{ width: 50, height: 50, marginTop: -35, zIndex: 2 }} />
                             <Text style={{ fontSize: 20, marginTop: 15 }}>Kuota LINE</Text>
                             <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#3D3D3D' }}>100MB</Text>
                             <Text style={{ fontSize: 25, color: '#6A318B', fontWeight: 'bold' }}>FREE</Text>
                             <Text style={{ fontSize: 13, marginTop: 10 }}>Masa aktif 1 hari</Text>
-                        </TouchableOpacity>
+                        </View>
                     </View>
-                    <View style={{ height: 230, width: 170, paddingVertical: 25, alignItems: 'center', backgroundColor: 'white' }}>
-                        <View style={{ height: 165, width: '100%', borderRadius: 10, backgroundColor: 'white', padding: 13, width: 150, elevation: 7 }}>
+                    <View style={{ height: 200, width: 170, paddingVertical: 25, alignItems: 'center', backgroundColor: 'white' }}>
+                        <View style={{ height: 165, width: '100%', borderRadius: 10, backgroundColor: 'white', padding: 13, width: 150, elevation: 3 }}>
                             <View style={{ width: 90, height: 40, marginTop: -35 }}>
                                 <Image source={require('../assets/brand/joox.png')} style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
                             </View>
@@ -33,8 +33,8 @@ const HomeSpecialPackage = props => {
                             <Text style={{ fontSize: 13, marginTop: 10 }}>Masa aktif 1 hari</Text>
                         </View>
                     </View>
-                    <View style={{ height: 230, width: 170, paddingVertical: 25, alignItems: 'center', backgroundColor: 'white' }}>
-                        <View style={{ height: 165, width: '100%', borderRadius: 10, backgroundColor: 'white', padding: 13, width: 150, elevation: 7 }}>
+                    <View style={{ height: 200, width: 170, paddingVertical: 25, alignItems: 'center', backgroundColor: 'white' }}>
+                        <View style={{ height: 165, width: '100%', borderRadius: 10, backgroundColor: 'white', padding: 13, width: 150, elevation: 3 }}>
                             <View style={{ width: 90, height: 60, marginTop: -40, flexDirection: 'row' }}>
                                 <Image source={require('../assets/brand/tiktok.png')} style={{ width: '50%', height: '100%', resizeMode: 'contain' }} />
                             </View>
@@ -44,8 +44,8 @@ const HomeSpecialPackage = props => {
                             <Text style={{ fontSize: 13, marginTop: 10 }}>Masa aktif 1 hari</Text>
                         </View>
                     </View>
-                    <View style={{ height: 230, width: 170, paddingVertical: 25, alignItems: 'center', backgroundColor: 'white' }}>
-                        <View style={{ height: 165, width: '100%', borderRadius: 10, backgroundColor: 'white', padding: 13, width: 150, elevation: 7 }}>
+                    <View style={{ height: 200, width: 170, paddingVertical: 25, alignItems: 'center', backgroundColor: 'white' }}>
+                        <View style={{ height: 165, width: '100%', borderRadius: 10, backgroundColor: 'white', padding: 13, width: 150, elevation: 3 }}>
                             <View style={{ width: 90, height: 60, marginTop: -50, flexDirection: 'row' }}>
                                 <Image source={require('../assets/brand/smule.png')} style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
                             </View>
@@ -55,8 +55,8 @@ const HomeSpecialPackage = props => {
                             <Text style={{ fontSize: 13, marginTop: 10 }}>Masa aktif 1 hari</Text>
                         </View>
                     </View>
-                    <View style={{ height: 230, width: 170, paddingVertical: 25, alignItems: 'center', backgroundColor: 'white' }}>
-                        <View style={{ height: 165, width: '100%', borderRadius: 10, backgroundColor: 'white', padding: 13, width: 150, elevation: 7 }}>
+                    <View style={{ height: 200, width: 170, paddingVertical: 25, alignItems: 'center', backgroundColor: 'white' }}>
+                        <View style={{ height: 165, width: '100%', borderRadius: 10, backgroundColor: 'white', padding: 13, width: 150, elevation: 3 }}>
                             <View style={{ width: 90, height: 60, marginTop: -50, flexDirection: 'row' }}>
                                 <Image source={require('../assets/brand/smule.png')} style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
                             </View>
@@ -69,12 +69,12 @@ const HomeSpecialPackage = props => {
                             <Text style={{ fontSize: 13, marginTop: 10 }}>Masa aktif 7 hari</Text>
                         </View>
                     </View>
-                    <View style={{ height: 230, width: 170, marginRight: 30, paddingVertical: 25, alignItems: 'center', backgroundColor: 'white' }}>
-                        <View style={{ height: 165, width: '100%', borderRadius: 10, backgroundColor: 'white', padding: 13, width: 150, elevation: 7 }}>
-                            <View style={{ width: 90, height: 60, marginTop: -50, flexDirection: 'row' }}>
+                    <View style={{ height: 200, width: 170, marginRight: 30, paddingVertical: 25, alignItems: 'center', backgroundColor: 'white' }}>
+                        <View style={{ height: 165, width: '100%', borderRadius: 10, backgroundColor: 'white', padding: 13, width: 150, elevation: 3 }}>
+                            <View style={{ width: 130, height: 90, marginTop: -50, flexDirection: 'row' }}>
                                 <Image source={require('../assets/brand/hago.png')} style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
                             </View>
-                            <Text style={{ fontSize: 20, fontWeight: 'bold', marginTop: 15 }}>Kuota HAGO</Text>
+                            <Text style={{ fontSize: 20, fontWeight: 'bold', marginTop: -15 }}>Kuota HAGO</Text>
                             <Text style={{ fontSize: 30, fontWeight: 'bold' }}>1GB</Text>
                             <View style={{ flexDirection: 'row' }}>
                                 <Text style={{ fontSize: 11, color: '#6A318B', fontWeight: 'bold', marginTop:5 }}>Rp.</Text>

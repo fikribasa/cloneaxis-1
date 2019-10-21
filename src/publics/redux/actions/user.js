@@ -55,3 +55,19 @@ export const patchUser = (id, data, token) => {
     ),
   };
 };
+
+export const getUserById = (id_user,token) => {
+  console.log(id_user,token)
+  return {
+    type: 'GET_USER_BY_ID',
+    payload: axios.get(
+      `https://mobile-provider-clone.herokuapp.com/user/${id_user}`,
+      {
+        headers: {
+          header_key: 'PR0V1D3R',
+          token: token
+        },
+      },
+    ),
+  };
+};

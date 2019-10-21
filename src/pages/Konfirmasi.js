@@ -5,7 +5,7 @@ import { withNavigation } from 'react-navigation'
 import { connect } from 'react-redux'
 import AsyncStorage from '@react-native-community/async-storage'
 
-import { createTransaction } from '../publics/redux/actions/transactions'
+import { createTransaction, getTransactions } from '../publics/redux/actions/transactions'
 
 class Konfirmasi extends Component {
     state = { 
@@ -25,10 +25,12 @@ class Konfirmasi extends Component {
 
     handleCheckout = () => {
         if (this.props.navigation.state.params.package.discprice > parseInt(this.state.credit)){
-            ToastAndroid.showWithGravity(
+            ToastAndroid.showWithGravityAndOffset(
                 'Maaf pulsa kamu tidak cukup untuk membeli paket ini',
                 ToastAndroid.LONG,
-                ToastAndroid.CENTER,
+                ToastAndroid.BOTTOM,
+                25, //xOffset
+                200, //yOffset
             )
         }else{
             AsyncStorage.getItem('id_user').then(id_user => {
@@ -37,21 +39,32 @@ class Konfirmasi extends Component {
                     ProductId: this.props.navigation.state.params.package.id
                 }
                 AsyncStorage.getItem('token').then(token => {
-                    this.props.dispatch(createTransaction(data, token)).then(() => {
+                    this.props.dispatch(createTransaction(data, token)).then(async () => {
                             let totalCredit = this.state.credit - this.props.navigation.state.params.package.discprice
 
+                            await AsyncStorage.getItem('id_user').then((id_user) => {
+                                this.props.dispatch(getTransactions(id_user))
+                            })
+
                             AsyncStorage.setItem('credit', totalCredit.toString())
-                            ToastAndroid.showWithGravity(
+                            ToastAndroid.showWithGravityAndOffset(
                                 'Berhasil membeli paket',
                                 ToastAndroid.LONG,
-                                ToastAndroid.CENTER,
+                                ToastAndroid.BOTTOM,
+                                3, //xOffset
+                                200, //yOffset            
                             )
-                            this.props.navigation.navigate('Beranda')
+                            setTimeout(() => {
+                                this.props.navigation.navigate('Beranda')
+                            }, 3000)
+                            
                         }).catch(() => {
-                            ToastAndroid.showWithGravity(
+                            ToastAndroid.showWithGravityAndOffset(
                                 'Kamu sudah membeli paket ini. Cek di detail paket',
                                 ToastAndroid.LONG,
-                                ToastAndroid.CENTER,
+                                ToastAndroid.BOTTOM,
+                                25, //xOffset
+                                200, //yOffset            
                             )
                         })
                 })

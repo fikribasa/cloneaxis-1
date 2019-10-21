@@ -18,18 +18,20 @@ class Recommended extends Component {
                     {
                         (this.props.recommended) ?
                             this.props.recommended.map(recommend => (
-                                <TouchableOpacity style={{ width: 170, height: 140, margin: 5, padding: 15, backgroundColor: '#F9A11B', borderRadius: 10 }} key={recommend.id} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: recommend }) }>
-                                    <Text style={{ fontWeight: 'bold', color: 'white' }}>{ recommend.Category.name }</Text>
-                                    <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 22 }}>{recommend.name} {(recommend.discount > 0) ? <Text>DISC {recommend.discount}% </Text> : null} </Text>
-                                    <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                                        <Text style={{ fontSize: 10, color: 'white', fontWeight: 'bold' }}>Rp</Text>
-                                        <Text style={{ fontSize: 18, color: 'white', fontWeight: 'bold' }}>{ recommend.discprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") }</Text>
-                                    </View>
-                                    {
-                                        (recommend.discount > 0) ? <Text style={{ fontSize: 11, color: 'white', textDecorationLine: 'line-through' }}>Rp. {recommend.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text> : null
-                                    }
-                                    <Text style={{ fontSize: 13, color: 'white', marginTop: 10 }}>Masa aktif { recommend.duration } hari</Text>
-                                </TouchableOpacity>
+                                <View style={{ width: 170, height: 140, margin: 5, elevation: 4, borderRadius: 10, overflow: 'hidden' }} key={recommend.id}>
+                                    <TouchableOpacity style={{ width: '100%', height: '100%', padding: 15, backgroundColor: '#F9A11B', borderRadius: 10 }} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: recommend }) }>
+                                        <Text style={{ fontWeight: 'bold', color: 'white' }}>{ recommend.Category.name }</Text>
+                                        <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 22 }}>{recommend.name} {(recommend.discount > 0) ? <Text>DISC {recommend.discount}% </Text> : null} </Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 10 }}>
+                                            <Text style={{ fontSize: 10, color: 'white', fontWeight: 'bold' }}>Rp</Text>
+                                            <Text style={{ fontSize: 18, color: 'white', fontWeight: 'bold' }}>{ recommend.discprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") }</Text>
+                                        </View>
+                                        {
+                                            (recommend.discount > 0) ? <Text style={{ fontSize: 11, color: 'white', textDecorationLine: 'line-through' }}>Rp. {recommend.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text> : null
+                                        }
+                                        <Text style={{ fontSize: 13, color: 'white', marginTop: 10 }}>Masa aktif { recommend.duration } hari</Text>
+                                    </TouchableOpacity>
+                                </View>
                             ))
                         : null
                     }

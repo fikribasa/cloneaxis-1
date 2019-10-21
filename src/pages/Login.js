@@ -1,13 +1,5 @@
 import React, {Component} from 'react';
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-  ScrollView,
-  ToastAndroid,
-} from 'react-native';
+import { View, Image, StyleSheet, ToastAndroid } from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 import {withNavigation} from 'react-navigation';
 import {connect} from 'react-redux';

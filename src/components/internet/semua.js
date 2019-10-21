@@ -20,7 +20,7 @@ class Semua extends Component {
         let { bronet, owsem, obor, raburawit } = this.props
         return (
             <View style={{ flex: 1 }}>
-                <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: "space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 10 }}>
+                <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: "space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 5 }}>
                     <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24 JAM</Text>
                     <Image source={require('../../assets/icon/ic_info_pink.webp')} style={{ height: 25, width: 25 }} />
                 </View>
@@ -28,26 +28,28 @@ class Semua extends Component {
                     {
                         (bronet) ?
                             bronet.map(bro => (
-                                <TouchableOpacity style={styles.card} key={bro.id} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: bro }) }>
-                                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>{bro.name} {(bro.discount > 0) ? <Text>({bro.discount}% OFF)</Text> : null} </Text>
-                                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>{bro.discprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text>
-                                    </View>
-                                    <View style={{ marginTop: 20 }}>
-                                        {
-                                            (bro.discount > 0) ?
-                                                <Text style={{ textDecorationLine: 'line-through', color: '#A9A9A9' }}>Rp. {bro.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text>
-                                                : null
-                                        }
-                                        <Text style={{ color: '#A9A9A9' }}>Masa Aktif {bro.duration} hari</Text>
-                                    </View>
-                                </TouchableOpacity>
+                                <View style={ styles.cardContainer } key={bro.id}>
+                                    <TouchableOpacity style={styles.card} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: bro }) }>
+                                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>{bro.name} {(bro.discount > 0) ? <Text>({bro.discount}% OFF)</Text> : null} </Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 5 }}>
+                                            <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
+                                            <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>{bro.discprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text>
+                                        </View>
+                                        <View style={{ marginTop: 20 }}>
+                                            {
+                                                (bro.discount > 0) ?
+                                                    <Text style={{ textDecorationLine: 'line-through', color: '#A9A9A9' }}>Rp. {bro.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text>
+                                                    : null
+                                            }
+                                            <Text style={{ color: '#A9A9A9' }}>Masa Aktif {bro.duration} hari</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
                             ))
                             : null
                     }
                 </ScrollView>
-                <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: "space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 10 }}>
+                <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: "space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 5 }}>
                     <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6D3D87' }}>OWSEM</Text>
                     <Image source={require('../../assets/icon/ic_info_pink.webp')} style={{ height: 25, width: 25 }} />
                 </View>
@@ -55,26 +57,28 @@ class Semua extends Component {
                     {
                         (owsem) ?
                             owsem.map(ow => (
-                                <TouchableOpacity style={styles.card} key={ow.id} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: ow }) }>
-                                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>{ow.name} {(ow.discount > 0) ? <Text>({ow.discount}% OFF)</Text> : null} </Text>
-                                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>{ow.discprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text>
-                                    </View>
-                                    <View style={{ marginTop: 20 }}>
-                                        {
-                                            (ow.discount > 0) ?
-                                                <Text style={{ textDecorationLine: 'line-through', color: '#A9A9A9' }}>Rp. {ow.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text>
-                                                : null
-                                        }
-                                        <Text style={{ color: '#A9A9A9' }}>Masa Aktif {ow.duration} hari</Text>
-                                    </View>
-                                </TouchableOpacity>
+                                <View style={styles.cardContainer} key={ow.id}>
+                                    <TouchableOpacity style={styles.card} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: ow }) }>
+                                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>{ow.name} {(ow.discount > 0) ? <Text>({ow.discount}% OFF)</Text> : null} </Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 5 }}>
+                                            <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
+                                            <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>{ow.discprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text>
+                                        </View>
+                                        <View style={{ marginTop: 20 }}>
+                                            {
+                                                (ow.discount > 0) ?
+                                                    <Text style={{ textDecorationLine: 'line-through', color: '#A9A9A9' }}>Rp. {ow.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text>
+                                                    : null
+                                            }
+                                            <Text style={{ color: '#A9A9A9' }}>Masa Aktif {ow.duration} hari</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
                             ))
                             : null
                     }
                 </ScrollView>
-                <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: "space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 10 }}>
+                <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: "space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 5 }}>
                     <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6D3D87' }}>OBOR Dinihari</Text>
                     <Image source={require('../../assets/icon/ic_info_pink.webp')} style={{ height: 25, width: 25 }} />
                 </View>
@@ -82,26 +86,28 @@ class Semua extends Component {
                     {
                         (obor) ?
                             obor.map(ob => (
-                                <TouchableOpacity style={styles.card} key={ob.id} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: ob }) }>
-                                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>{ob.name} {(ob.discount > 0) ? <Text>({ob.discount}% OFF)</Text> : null} </Text>
-                                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>{ob.discprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text>
-                                    </View>
-                                    <View style={{ marginTop: 20 }}>
-                                        {
-                                            (ob.discount > 0) ?
-                                                <Text style={{ textDecorationLine: 'line-through', color: '#A9A9A9' }}>Rp. {ob.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text>
-                                                : null
-                                        }
-                                        <Text style={{ color: '#A9A9A9' }}>Masa Aktif {ob.duration} hari</Text>
-                                    </View>
-                                </TouchableOpacity>
+                                <View style={styles.cardContainer} key={ob.id}>
+                                    <TouchableOpacity style={styles.card} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: ob }) }>
+                                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>{ob.name} {(ob.discount > 0) ? <Text>({ob.discount}% OFF)</Text> : null} </Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 5 }}>
+                                            <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
+                                            <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>{ob.discprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text>
+                                        </View>
+                                        <View style={{ marginTop: 20 }}>
+                                            {
+                                                (ob.discount > 0) ?
+                                                    <Text style={{ textDecorationLine: 'line-through', color: '#A9A9A9' }}>Rp. {ob.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text>
+                                                    : null
+                                            }
+                                            <Text style={{ color: '#A9A9A9' }}>Masa Aktif {ob.duration} hari</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
                             ))
                             : null
                     }
                 </ScrollView>
-                <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: "space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 10 }}>
+                <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: "space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 5 }}>
                     <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6D3D87' }}>PROMO RABU RAWIT</Text>
                     <Image source={require('../../assets/icon/ic_info_pink.webp')} style={{ height: 25, width: 25 }} />
                 </View>
@@ -109,21 +115,23 @@ class Semua extends Component {
                     {
                         (raburawit) ?
                             raburawit.map(rabu => (
-                                <TouchableOpacity style={styles.card} key={rabu.id} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: rabu }) }>
-                                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>{rabu.name} {(rabu.discount > 0) ? <Text>({rabu.discount}% OFF)</Text> : null} </Text>
-                                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>{rabu.discprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text>
-                                    </View>
-                                    <View style={{ marginTop: 20 }}>
-                                        {
-                                            (rabu.discount > 0) ?
-                                                <Text style={{ textDecorationLine: 'line-through', color: '#A9A9A9' }}>Rp. {rabu.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text>
-                                                : null
-                                        }
-                                        <Text style={{ color: '#A9A9A9' }}>Masa Aktif {rabu.duration} hari</Text>
-                                    </View>
-                                </TouchableOpacity>
+                                <View style={styles.cardContainer} key={rabu.id}>
+                                    <TouchableOpacity style={styles.card} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: rabu }) }>
+                                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>{rabu.name} {(rabu.discount > 0) ? <Text>({rabu.discount}% OFF)</Text> : null} </Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 5 }}>
+                                            <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
+                                            <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>{rabu.discprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text>
+                                        </View>
+                                        <View style={{ marginTop: 20 }}>
+                                            {
+                                                (rabu.discount > 0) ?
+                                                    <Text style={{ textDecorationLine: 'line-through', color: '#A9A9A9' }}>Rp. {rabu.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text>
+                                                    : null
+                                            }
+                                            <Text style={{ color: '#A9A9A9' }}>Masa Aktif {rabu.duration} hari</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
                             ))
                             : null
                     }
@@ -148,15 +156,21 @@ const mapStateToProps = state => {
 export default withNavigation(connect(mapStateToProps)(Semua))
 
 const styles = StyleSheet.create({
-    card: {
+    cardContainer : {
         marginRight: 15,
-        height: 130,
+        height: 131,
         width: 250,
         backgroundColor: 'white',
         borderRadius: 10,
-        padding: 10,
-        // borderColor: "grey",
-        // borderWidth : 1,
+        overflow: 'hidden',
+    },
+    card: {
+        height: '95%',
+        width: '100%',
+        backgroundColor: 'white',
+        borderRadius: 10,
+        paddingVertical: 5,
+        paddingHorizontal: 10,
         elevation: 1
     },
 })

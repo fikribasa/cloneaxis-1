@@ -43,12 +43,18 @@ class Profile extends Component {
 
   handleEdit = async () => {
     if (this.state.newname.length > 0 || this.state.newemail.length > 0) {
-      const data = {name: this.state.newname, email: this.state.newemail};
+      if(this.state.newname.length === 0){
+        var data = {name: this.state.user.name, email: this.state.newemail};
+      }else{
+        var data = { name: this.state.newname, email: this.state.user.email };
+      }
       await this.props
         .dispatch(
           patchUser(this.state.user.UserId, data, this.state.user.token),
         )
         .then(async () => {
+          AsyncStorage.setItem('name', data.name)
+          AsyncStorage.setItem('email', data.email)
           await this._toastpatch();
         });
     } else {
