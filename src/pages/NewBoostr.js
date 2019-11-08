@@ -1,259 +1,192 @@
-import React from 'react'
-import SafeAreaView from 'react-native-safe-area-view'
-import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
+import React, { Component } from 'react'
+import { Text, StyleSheet, TouchableOpacity, ScrollView, View, Image } from 'react-native'
 import { withNavigation } from 'react-navigation'
+import { connect } from 'react-redux'
 
-const NewBoostr = props => {
-    return (
-        <ScrollView style={{ flex: 1 }}>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', paddingLeft: 15, marginTop: 10, marginBottom: 10 }}>
-                <TouchableOpacity>
-                    <Text style={ styles.textCategoryActive }>Semua</Text>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                    <Text style={ styles.textCategory }>BRONET 24 JAM</Text>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                    <Text style={ styles.textCategory }>OWSEM</Text>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                    <Text style={ styles.textCategory }>OBOR Dinihari</Text>
-                </TouchableOpacity>
-            </ScrollView>
-            <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: "space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 10 }}>
-                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6D3D87' }}>BOOSTR SOSMED</Text>
-                <Image source={require('../assets/icon/ic_info_pink.webp')} style={{ height: 25, width: 25 }} />
-            </View>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', flexWrap: 'wrap', paddingLeft: 10, marginBottom: 30 }}>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-            </ScrollView>
-            <View style={{ flexDirection: 'row', alignItems:"center", justifyContent:"space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 10 }}>
-                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6D3D87' }}>BOOSTR VIDEO</Text>
-                <Image source={require('../assets/icon/ic_info_pink.webp')} style={{ height: 25, width: 25 }} />
-            </View>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', flexWrap: 'wrap', paddingLeft: 10, marginBottom: 30 }}>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-            </ScrollView>
-            <View style={{ flexDirection: 'row', alignItems:"center", justifyContent:"space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 10 }}>
-                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6D3D87' }}>BOOSTR GAMES</Text>
-                <Image source={require('../assets/icon/ic_info_pink.webp')} style={{ height: 25, width: 25 }} />
-            </View>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', flexWrap: 'wrap', paddingLeft: 10, marginBottom: 30 }}>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-            </ScrollView>
-            <View style={{ flexDirection: 'row', alignItems:"center", justifyContent:"space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 10 }}>
-                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6D3D87' }}>BOOSTR MUSIK</Text>
-                <Image source={require('../assets/icon/ic_info_pink.webp')} style={{ height: 25, width: 25 }} />
-            </View>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', flexWrap: 'wrap', paddingLeft: 10, marginBottom: 30 }}>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-            </ScrollView>
-            <View style={{ flexDirection: 'row', alignItems:"center", justifyContent:"space-between", paddingHorizontal: 20, marginBottom: 20, marginTop: 10 }}>
-                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6D3D87' }}>BOOSTR SUNSET</Text>
-                <Image source={require('../assets/icon/ic_info_pink.webp')} style={{ height: 25, width: 25 }} />
-            </View>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', flexWrap: 'wrap', paddingLeft: 10, marginBottom: 30 }}>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#6D3D87' }}>Bronet 24Jam 3GB (23% OFF)</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <Text style={{ fontSize: 10, color: '#F2B629', fontWeight: 'bold', marginTop: 3 }}>Rp</Text>
-                        <Text style={{ fontSize: 25, color: '#F2B629', fontWeight: 'bold' }}>30.900</Text>
-                    </View>
-                    <Text style={{ textDecorationLine: 'line-through', marginTop: 20, color: '#A9A9A9' }}>Rp. 39.000</Text>
-                    <Text style={{ color: '#A9A9A9' }}>Masa Aktif 30 hari</Text>
-                </TouchableOpacity>
-            </ScrollView>
-        </ScrollView>
-    )
+import Semua from '../components/newBoostr/semua'
+import BoostrSosmed from '../components/newBoostr/boostrSosmed'
+import BoostrVideo from '../components/newBoostr/boostrVideo'
+import BoostrGame from '../components/newBoostr/boostrGame'
+import BoostrMusik from '../components/newBoostr/boostrMusik'
+import BoostrSunset from '../components/newBoostr/boostrSunset'
+
+class NewBoostr extends Component {
+    state = {
+        category: 'semua'
+    }
+
+    render() {
+        let { category } = this.state
+        if (category === 'semua') {
+            return (
+                <ScrollView style={{ flex: 1 }}>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', paddingLeft: 15, marginTop: 10, marginBottom: 10 }}>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'semua' })}>
+                            <Text style={styles.textCategoryActive}>Semua</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'sosmed' })}>
+                            <Text style={styles.textCategory}>BOOSTR SOSMED</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'video' })}>
+                            <Text style={styles.textCategory}>BOOSTR VIDEO</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'game' })}>
+                            <Text style={styles.textCategory}>BOOSTR GAMES</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'musik' })}>
+                            <Text style={styles.textCategory}>BOOSTR MUSIK</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'sunset' })}>
+                            <Text style={styles.textCategory}>BOOSTR SUNSET</Text>
+                        </TouchableOpacity>
+                    </ScrollView>
+                    <Semua />
+                </ScrollView>
+            )
+        } else if (category === 'sosmed') {
+            return (
+                <ScrollView style={{ flex: 1 }}>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', paddingLeft: 15, marginTop: 10, marginBottom: 10 }}>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'semua' })}>
+                            <Text style={styles.textCategory}>Semua</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'sosmed' })}>
+                            <Text style={styles.textCategoryActive}>BOOSTR SOSMED</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'video' })}>
+                            <Text style={styles.textCategory}>BOOSTR VIDEO</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'game' })}>
+                            <Text style={styles.textCategory}>BOOSTR GAMES</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'musik' })}>
+                            <Text style={styles.textCategory}>BOOSTR MUSIK</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'sunset' })}>
+                            <Text style={styles.textCategory}>BOOSTR SUNSET</Text>
+                        </TouchableOpacity>
+                    </ScrollView>
+                    <BoostrSosmed />
+                </ScrollView>
+            )
+        } else if (category === 'video') {
+            return (
+                <ScrollView style={{ flex: 1 }}>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', paddingLeft: 15, marginTop: 10, marginBottom: 10 }}>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'semua' })}>
+                            <Text style={styles.textCategory}>Semua</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'sosmed' })}>
+                            <Text style={styles.textCategory}>BOOSTR SOSMED</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'video' })}>
+                            <Text style={styles.textCategoryActive}>BOOSTR VIDEO</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'game' })}>
+                            <Text style={styles.textCategory}>BOOSTR GAMES</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'musik' })}>
+                            <Text style={styles.textCategory}>BOOSTR MUSIK</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'sunset' })}>
+                            <Text style={styles.textCategory}>BOOSTR SUNSET</Text>
+                        </TouchableOpacity>
+                    </ScrollView>
+                    <BoostrVideo />
+                </ScrollView>
+            )
+        } else if (category === 'game') {
+            return (
+                <ScrollView style={{ flex: 1 }}>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', paddingLeft: 15, marginTop: 10, marginBottom: 10 }}>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'semua' })}>
+                            <Text style={styles.textCategory}>Semua</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'sosmed' })}>
+                            <Text style={styles.textCategory}>BOOSTR SOSMED</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'video' })}>
+                            <Text style={styles.textCategory}>BOOSTR VIDEO</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'game' })}>
+                            <Text style={styles.textCategoryActive}>BOOSTR GAMES</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'musik' })}>
+                            <Text style={styles.textCategory}>BOOSTR MUSIK</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'sunset' })}>
+                            <Text style={styles.textCategory}>BOOSTR SUNSET</Text>
+                        </TouchableOpacity>
+                    </ScrollView>
+                    <BoostrGame />
+                </ScrollView>
+            )
+        } else if (category === 'musik') {
+            return (
+                <ScrollView style={{ flex: 1 }}>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', paddingLeft: 15, marginTop: 10, marginBottom: 10 }}>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'semua' })}>
+                            <Text style={styles.textCategory}>Semua</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'sosmed' })}>
+                            <Text style={styles.textCategory}>BOOSTR SOSMED</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'video' })}>
+                            <Text style={styles.textCategory}>BOOSTR VIDEO</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'game' })}>
+                            <Text style={styles.textCategory}>BOOSTR GAMES</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'musik' })}>
+                            <Text style={styles.textCategoryActive}>BOOSTR MUSIK</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'sunset' })}>
+                            <Text style={styles.textCategory}>BOOSTR SUNSET</Text>
+                        </TouchableOpacity>
+                    </ScrollView>
+                    <BoostrMusik />
+                </ScrollView>
+            )
+        } else if (category === 'sunset') {
+            return (
+                <ScrollView style={{ flex: 1 }}>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row', paddingLeft: 15, marginTop: 10, marginBottom: 10 }}>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'semua' })}>
+                            <Text style={styles.textCategory}>Semua</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'sosmed' })}>
+                            <Text style={styles.textCategory}>BOOSTR SOSMED</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'video' })}>
+                            <Text style={styles.textCategory}>BOOSTR VIDEO</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'game' })}>
+                            <Text style={styles.textCategory}>BOOSTR GAMES</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'musik' })}>
+                            <Text style={styles.textCategory}>BOOSTR MUSIK</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ category: 'sunset' })}>
+                            <Text style={styles.textCategoryActive}>BOOSTR SUNSET</Text>
+                        </TouchableOpacity>
+                    </ScrollView>
+                    <BoostrSunset />
+                </ScrollView>
+            )
+        } else {
+            return <Text>LOADING.....</Text>
+        }
+    }
 }
 
-export default withNavigation(NewBoostr)
+const mapStateToProps = state => {
+    return {
+    }
+}
+
+export default withNavigation(connect(mapStateToProps)(NewBoostr))
 
 const styles = StyleSheet.create({
-    card: {
-        marginRight: 15,
-        height: 130,
-        width: 250,
-        backgroundColor: 'white',
-        borderRadius: 10,
-        padding: 10,
-        shadowColor: "#000",
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        shadowOpacity: 0.18,
-        shadowRadius: 1.00,
-        elevation: 1
-    },
     textCategory: {
         color: '#6D3D87',
         padding: 10,
@@ -277,4 +210,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         backgroundColor: '#EB008B'
     }
+
 })

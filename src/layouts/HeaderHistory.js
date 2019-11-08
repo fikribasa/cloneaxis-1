@@ -20,7 +20,7 @@ const Header = props => {
       <StatusBar translucent backgroundColor="transparent" />
       <TouchableWithoutFeedback style={{flexDirection: 'row-reverse'}}>
         <ImageBackground
-          source={require('../assets/icon/graphic_header.png')}
+          source={require('../assets/icon/header_profile.png')}
           style={styles.headerbg}>
           <View style={styles.header}>
             <TouchableOpacity
@@ -35,6 +35,8 @@ const Header = props => {
             <Text style={{fontSize: 14, color: '#5B2C6F', fontWeight: 'bold'}}>
               {props.navigation.state.routeName === 'ContactUs'
                 ? 'Hubungi Kami'
+                : props.navigation.state.routeName === 'PrivacyPolicy'
+                ? 'AxisNet'
                 : props.navigation.state.routeName}
             </Text>
             <View style={{width: '20%'}}></View>

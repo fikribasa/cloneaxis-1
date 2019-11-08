@@ -9,30 +9,40 @@ import Complaint from './Complaint';
 import Beranda from './Beranda';
 import QuickMenu from './QuickMenu';
 import Internet from './Internet';
-import NewBoostr from './Internet';
+import NewBoostr from './NewBoostr';
+import Login from './Login';
+import Otp from './Otp';
 import TeleponDanSms from './TeleponDanSms';
 import Roaming from './Roaming';
 import Recommended from './Recommended';
 import Topup from './Topup';
+import DetailPaket from './DetailPaket';
 import PackageDetails from './PackageDetails';
 import BeliPaket from './BeliPaket';
 import Play from './Play';
 import Notif from './Notif';
-import MyAxis from './MyAxis';
+import MyAxis from './Myaxis';
 import AboutUs from './AboutUs';
 import Aigo from './Aigo';
+import PrivacyPolicy from './PrivacyPolicy';
+import Konfirmasi from './Konfirmasi';
+import Splash from './Splash';
 
 export {
   AboutUs,
+  Login,
+  Otp,
+  Konfirmasi,
   Beranda,
   BeliPaket,
   QuickMenu,
-  Internet, 
+  Internet,
   NewBoostr,
   TeleponDanSms,
   Roaming,
   Recommended,
   PackageDetails,
+  DetailPaket,
   Aigo,
   Topup,
   Play,
@@ -45,4 +55,6 @@ export {
   Usage,
   Advice,
   Complaint,
+  PrivacyPolicy,
+  Splash,
 };

@@ -4,9 +4,7 @@ import {
   StyleSheet,
   Image,
   TextInput,
-  Button,
   ImageBackground,
-  Dimensions,
   StatusBar,
   ToastAndroid,
 } from 'react-native';
@@ -15,30 +13,59 @@ import React, {Component} from 'react';
 import SafeAreaView from 'react-native-safe-area-view';
 
 import {connect} from 'react-redux';
-// import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 import {getUser, patchUser} from '../publics/redux/actions/user';
 
 class Profile extends Component {
   state = {
-    user: [],
+    user: {name: null, email: null, phone: null, UserId: null, token: null},
     newname: '',
     newemail: '',
   };
 
   componentDidMount = async () => {
-    await this.props.dispatch(getUser(1));
-    await new Promise(resolve => {
-      setTimeout(resolve, 1000);
+    await AsyncStorage.getItem('id_user').then(id_user => {
+      this.setState(prevState => ({...(prevState.user['UserId'] = id_user)}));
     });
-    await this.setState({user: this.props.user});
+    await AsyncStorage.getItem('name').then(name => {
+      this.setState(prevState => ({...(prevState.user['name'] = name)}));
+    });
+    await AsyncStorage.getItem('email').then(email => {
+      this.setState(prevState => ({...(prevState.user['email'] = email)}));
+    });
+    await AsyncStorage.getItem('phone').then(phone => {
+      this.setState(prevState => ({...(prevState.user['phone'] = phone)}));
+    });
+    await AsyncStorage.getItem('token').then(token => {
+      this.setState(prevState => ({...(prevState.user['token'] = token)}));
+    });
   };
 
-  handleEdit = async (newname, newemail) => {
-    const data = {name: this.state.newname, email: this.state.newemail};
-
-    await this.props.dispatch(patchUser(1, data)).then(async () => {
-      await this._toastpatch();
-    });
+  handleEdit = async () => {
+    if (this.state.newname.length > 0 || this.state.newemail.length > 0) {
+      if(this.state.newname.length === 0){
+        var data = {name: this.state.user.name, email: this.state.newemail};
+      }else{
+        var data = { name: this.state.newname, email: this.state.user.email };
+      }
+      await this.props
+        .dispatch(
+          patchUser(this.state.user.UserId, data, this.state.user.token),
+        )
+        .then(async () => {
+          AsyncStorage.setItem('name', data.name)
+          AsyncStorage.setItem('email', data.email)
+          await this._toastpatch();
+        });
+    } else {
+      ToastAndroid.showWithGravityAndOffset(
+        'Tidak ada perubahan',
+        ToastAndroid.LONG, //can be SHORT, LONG
+        ToastAndroid.BOTTOM, //can be TOP, BOTTON, CENTER
+        25, //xOffset
+        50, //yOffset
+      );
+    }
   };
 
   _toastpatch = () => {
@@ -58,7 +85,7 @@ class Profile extends Component {
         <StatusBar translucent backgroundColor="transparent" />
         <TouchableOpacity style={{flexDirection: 'row-reverse'}}>
           <ImageBackground
-            source={require('../assets/icon/graphic_header.png')}
+            source={require('../assets/icon/header_profile.png')}
             style={styles.headerbg}>
             <View style={styles.header}>
               <TouchableOpacity
@@ -141,13 +168,13 @@ class Profile extends Component {
   }
 }
 
-const mapStateProps = state => {
-  return {
-    user: state.user.users,
-  };
-};
+// const mapStateProps = state => {
+//   return {
+//     user: state.user.users,
+//   };
+// };
 
-export default connect(mapStateProps)(Profile);
+export default connect()(Profile);
 
 const styles = StyleSheet.create({
   container: {

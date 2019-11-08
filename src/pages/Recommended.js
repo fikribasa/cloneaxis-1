@@ -1,79 +1,53 @@
-import React from 'react'
+import React, { Component } from 'react'
 import SafeAreaView from 'react-native-safe-area-view'
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import { withNavigation } from 'react-navigation'
+import { getPackageCategoryRecommended } from '../publics/redux/actions/axispackage'
 
-const Recommended = props => {
-    return (
-        <ScrollView style={{ flex: 1, marginTop: 50 }}>
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-                <TouchableOpacity style={{
-                    width: 170, height: 140, margin: 5, padding: 15, backgroundColor: '#F9A11B', borderRadius: 10, 
-                    shadowColor: "#000",
-                    shadowOffset: {
-                        width: 0,
-                        height: 2,
-                    },
-                    shadowOpacity: 0.25,
-                    shadowRadius: 3.84,
+import { connect } from 'react-redux'
 
-                    elevation: 5, }}>
-                    <Text style={{ fontWeight: 'bold', color: 'white' }}>INTERNET</Text>
-                    <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 22 }}>10GB DISC 40%</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                        <Text style={{ fontSize: 10, color: 'white', fontWeight: 'bold' }}>Rp</Text>
-                        <Text style={{ fontSize: 18, color:'white', fontWeight: 'bold' }}>50.000</Text>
-                    </View>
-                    <Text style={{ fontSize: 11, color: 'white', textDecorationLine: 'line-through' }}>Rp. 90.000</Text>
-                    <Text style={{ fontSize: 13, color: 'white', marginTop: 10 }}>Masa aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{
-                    width: 170, height: 140, margin: 5, padding: 15, backgroundColor: '#F9A11B', borderRadius: 10, 
-                    shadowColor: "#000",
-                    shadowOffset: {
-                        width: 0,
-                        height: 2,
-                    },
-                    shadowOpacity: 0.25,
-                    shadowRadius: 3.84,
-
-                    elevation: 5, }}>
-                    <Text style={{ fontWeight: 'bold', color: 'white' }}>INTERNET</Text>
-                    <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 22 }}>10GB DISC 40%</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                        <Text style={{ fontSize: 10, color: 'white', fontWeight: 'bold' }}>Rp</Text>
-                        <Text style={{ fontSize: 18, color:'white', fontWeight: 'bold' }}>50.000</Text>
-                    </View>
-                    <Text style={{ fontSize: 11, color: 'white', textDecorationLine: 'line-through' }}>Rp. 90.000</Text>
-                    <Text style={{ fontSize: 13, color: 'white', marginTop: 10 }}>Masa aktif 30 hari</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{
-                    width: 170, height: 140, margin: 5, padding: 15, backgroundColor: '#F9A11B', borderRadius: 10,
-                    shadowColor: "#000",
-                    shadowOffset: {
-                        width: 0,
-                        height: 2,
-                    },
-                    shadowOpacity: 0.25,
-                    shadowRadius: 3.84,
-
-                    elevation: 5,
-                }}>
-                    <Text style={{ fontWeight: 'bold', color: 'white' }}>INTERNET</Text>
-                    <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 22 }}>10GB DISC 40%</Text>
-                    <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                        <Text style={{ fontSize: 10, color: 'white', fontWeight: 'bold' }}>Rp</Text>
-                        <Text style={{ fontSize: 18, color: 'white', fontWeight: 'bold' }}>50.000</Text>
-                    </View>
-                    <Text style={{ fontSize: 11, color: 'white', textDecorationLine: 'line-through' }}>Rp. 90.000</Text>
-                    <Text style={{ fontSize: 13, color: 'white', marginTop: 10 }}>Masa aktif 30 hari</Text>
-                </TouchableOpacity>
-            </View>
-        </ScrollView>
-    )
+class Recommended extends Component {
+    componentDidMount = () => {
+        if (this.props.recommended === undefined) this.props.dispatch(getPackageCategoryRecommended())
+    }
+    
+    render() { 
+        return (
+            <ScrollView style={{ flex: 1, marginTop: 50 }}>
+                <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                    {
+                        (this.props.recommended) ?
+                            this.props.recommended.map(recommend => (
+                                <View style={{ width: 170, height: 140, margin: 5, elevation: 4, borderRadius: 10, overflow: 'hidden' }} key={recommend.id}>
+                                    <TouchableOpacity style={{ width: '100%', height: '100%', padding: 15, backgroundColor: '#F9A11B', borderRadius: 10 }} onPress={ () => this.props.navigation.navigate('PackageDetails', { package: recommend }) }>
+                                        <Text style={{ fontWeight: 'bold', color: 'white' }}>{ recommend.Category.name }</Text>
+                                        <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 22 }}>{recommend.name} {(recommend.discount > 0) ? <Text>DISC {recommend.discount}% </Text> : null} </Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 10 }}>
+                                            <Text style={{ fontSize: 10, color: 'white', fontWeight: 'bold' }}>Rp</Text>
+                                            <Text style={{ fontSize: 18, color: 'white', fontWeight: 'bold' }}>{ recommend.discprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") }</Text>
+                                        </View>
+                                        {
+                                            (recommend.discount > 0) ? <Text style={{ fontSize: 11, color: 'white', textDecorationLine: 'line-through' }}>Rp. {recommend.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</Text> : null
+                                        }
+                                        <Text style={{ fontSize: 13, color: 'white', marginTop: 10 }}>Masa aktif { recommend.duration } hari</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            ))
+                        : null
+                    }
+                </View>
+            </ScrollView>
+        )
+    }
+}
+ 
+const mapStateToProps = state => {
+    return {
+        recommended: state.axispackage.recommended.rows
+    }
 }
 
-export default withNavigation(Recommended)
+export default withNavigation(connect(mapStateToProps)(Recommended))
 
 const styles = StyleSheet.create({
     icon_menu: {

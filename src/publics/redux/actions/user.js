@@ -10,7 +10,37 @@ export const getUser = id => {
   };
 };
 
-export const patchUser = (id, data) => {
+export const login = phone => {
+  return {
+    type: 'LOGIN_USER',
+    payload: axios.post(
+      'https://mobile-provider-clone.herokuapp.com/user/login',
+      phone,
+    ),
+  };
+};
+
+export const sendOtp = phone => {
+  return {
+    type: 'SEND_OTP',
+    payload: axios.post(
+      'https://mobile-provider-clone.herokuapp.com/otp/loginOtp',
+      phone,
+    ),
+  };
+};
+
+export const sendEmail = user => {
+  return {
+    type: 'SEND_EMAIL',
+    payload: axios.post(
+      'https://mobile-provider-clone.herokuapp.com/otp/sentmail',
+      user,
+    ),
+  };
+};
+
+export const patchUser = (id, data, token) => {
   return {
     type: 'PATCH_USER',
     payload: axios.patch(
@@ -18,11 +48,24 @@ export const patchUser = (id, data) => {
       data,
       {
         headers: {
-          // header_key: 'PR0V1D3R',
-          // token:
-          //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkFkbWluMSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTU2OTgwNDc0NiwiZXhwIjoxNTY5ODkxMTQ2fQ.kvZhtqiIqXXHJI2pGcjr0baoAyuXsGmPmsGR8aSLZJE',
-          // Content-Type: 'application/x-www-form-urlencoded',
-          // 'x-auth-token': AsyncStorage.getItem('token'),
+          header_key: 'PR0V1D3R',
+          token: token
+        },
+      },
+    ),
+  };
+};
+
+export const getUserById = (id_user,token) => {
+  console.log(id_user,token)
+  return {
+    type: 'GET_USER_BY_ID',
+    payload: axios.get(
+      `https://mobile-provider-clone.herokuapp.com/user/${id_user}`,
+      {
+        headers: {
+          header_key: 'PR0V1D3R',
+          token: token
         },
       },
     ),

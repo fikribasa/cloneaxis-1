@@ -8,12 +8,13 @@ import {
   Text,
   ImageBackground,
   StatusBar,
+  Image,
 } from 'react-native';
 import Footer from '../layouts/Footer';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 import {connect} from 'react-redux';
-// import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import {getNotification} from '../publics/redux/actions/notification';
 
@@ -31,24 +32,27 @@ function Item({date, message}) {
 class Notif extends React.Component {
   state = {
     notification: [],
+    UserId: '',
   };
 
   componentDidMount = async () => {
-    await this.props.dispatch(getNotification(1));
-    await new Promise(resolve => {
-      setTimeout(resolve, 1000);
+    await AsyncStorage.getItem('id_user').then(id_user => {
+      this.setState({UserId: id_user});
     });
+    await this.props.dispatch(getNotification(this.state.UserId));
+    // await new Promise(resolve => {
+    //   setTimeout(resolve, 1000);
+    // });
     await this.setState({notification: this.props.notification.rows});
   };
 
   render() {
     return (
       <SafeAreaView style={{flex: 1}}>
-        {console.log(this.state.notification)}
         <StatusBar translucent backgroundColor="transparent" />
         <TouchableOpacity style={{flexDirection: 'row-reverse'}}>
           <ImageBackground
-            source={require('../assets/icon/graphic_header.png')}
+            source={require('../assets/icon/header_profile.png')}
             style={styles.headerbg}>
             <View style={styles.header}>
               <Text style={styles.titletop}>Notifikasi</Text>
@@ -73,8 +77,8 @@ class Notif extends React.Component {
                   resizeMode: 'contain',
                   width: 400,
                   height: 400,
-                  fontSize: 14,
-                  color: '#6f2d91',
+                  // fontSize: 14,
+                  // color: '#6f2d91',
                 }}
               />
               <Text>Tidak Ada Notifikasi</Text>

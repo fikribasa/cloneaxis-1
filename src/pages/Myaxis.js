@@ -8,17 +8,30 @@ import {
   ScrollView,
   StatusBar,
   ImageBackground,
+  ToastAndroid,
 } from 'react-native';
 import Footer from '../layouts/Footer';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const MyAxis = props => {
+  const handleLogout = async () => {
+    await AsyncStorage.clear().then(() =>
+      props.navigation.navigate('AuthStack'),
+    );
+    ToastAndroid.showWithGravity(
+      'Berhasil logout',
+      ToastAndroid.LONG,
+      ToastAndroid.CENTER,
+    );
+  };
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBar translucent backgroundColor="transparent" />
       <TouchableOpacity style={{flexDirection: 'row-reverse'}}>
         <ImageBackground
-          source={require('../assets/icon/graphic_header.png')}
+          source={require('../assets/icon/header_profile.png')}
           style={styles.headerbg}>
           <View style={styles.header}>
             <Text style={styles.title}>Lainnya</Text>
@@ -120,7 +133,7 @@ const MyAxis = props => {
                 flexDirection: 'column',
                 flexDirection: 'row',
               }}
-              onPress={() => props.navigation.navigate('ContactUs')}>
+              onPress={() => props.navigation.navigate('PrivacyPolicy')}>
               <Text style={styles.item}>Kebijakan Privacy Policy</Text>
               <Image
                 source={require('../assets/icon/ic_chevron_right_purple.webp')}
@@ -152,13 +165,15 @@ const MyAxis = props => {
         <View style={styles.strip}></View>
 
         <View style={{flexDirection: 'column', paddingLeft: 8}}>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <TouchableOpacity
+            style={{flexDirection: 'row', justifyContent: 'space-between'}}
+            onPress={() => handleLogout()}>
             <Text style={styles.item}>Keluar</Text>
             <Image
               source={require('../assets/icon/ic_chevron_right_purple.webp')}
               style={styles.arrow}
             />
-          </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
       <Footer />
